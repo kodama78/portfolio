@@ -64,7 +64,7 @@ body {
   	width: 80%;
   	height: 100%;
   	font-size: initial;
-  	background: lavender;
+  	background: white;
   	display: inline-block;
 }
 .left_side {
@@ -72,30 +72,27 @@ body {
   	top: 0px;
   	height: 100%;
   	width: 100%;
+  	background: red;
   	font-size: initial;
   	display: inline-block;
   	left: -80%;
   	transition-duration: 1s;
 }
-.left_side:hover {
-	transform: skew(180deg, 0deg);
+.left_side_active {
+	background: blue;
+	transform: translateX(70%);
 	z-index: 200;
-}
-.left_side:active{
-	transform: translate(80%);
 }
 .side_content {
 	width: 80%;
   	height: 100%;
-  	background: red;
   	position: relative;
   	display: inline-block;
 }
 .side_handle {
 	width: 10%;
   	height: 100%;
-  	background: red;
-  	position: relative;
+  	position: absolute;
   	display: inline-block;
 }
 .right_side {
@@ -104,14 +101,19 @@ body {
   	height: 100%;
   	width: 100%;
   	font-size: initial;
+  	background: red;
   	display: inline-block;
   	right: -90%;
   	transition-duration: 1s;
 }
-.right_side:hover {
-	transform: skew(180deg, 0deg);
+.right_side_active {
+	background: blue;
+	transform: translate(-80%);
 	z-index: 200;
 }
-.right_side:active{
-	transform: translate(-80%);
+
+/* FONTS AND STYLING */
+
+h1 {
+	
 }
