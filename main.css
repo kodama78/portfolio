@@ -64,7 +64,7 @@ body {
   	width: 80%;
   	height: 100%;
   	font-size: initial;
-  	background: white;
+  	background: #D1E8FF;
   	display: inline-block;
 }
 .left_side {
@@ -72,15 +72,15 @@ body {
   	top: 0px;
   	height: 100%;
   	width: 100%;
-  	background: red;
+  	background: #E4E4E4;
   	font-size: initial;
   	display: inline-block;
   	left: -80%;
   	transition-duration: 1s;
 }
 .left_side_active {
-	background: blue;
-	transform: translateX(70%);
+	background: #666666;
+	transform: translateX(60%);
 	z-index: 200;
 }
 .side_content {
@@ -101,19 +101,30 @@ body {
   	height: 100%;
   	width: 100%;
   	font-size: initial;
-  	background: red;
+  	background: #E4E4E4;
   	display: inline-block;
   	right: -90%;
   	transition-duration: 1s;
 }
 .right_side_active {
-	background: blue;
-	transform: translate(-80%);
+	background: #666666;
+	transform: translate(-70%);
 	z-index: 200;
 }
 
 /* FONTS AND STYLING */
+body {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
 
-h1 {
-	
+.main_content h1 {
+	font-size: 36px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.main_content h3 {
+	font-size: 24px;
+}
+.main_content p {
+
 }
