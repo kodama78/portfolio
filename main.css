@@ -53,35 +53,78 @@ table {
 =======================================
 =======================================
 */
-
+html{
+	height: 100vh;
+}
 body {
 	font-size: 0px;
+	height: 100%;
 }
 /* BODY */
-.main_content {
+.main_content{
 	position: absolute;
   	left: 10%;
   	width: 80%;
   	height: 100%;
-  	font-size: initial;
-  	background: #D1E8FF;
+  	margin-top: 0.3%;
+  	min-height: 500px;
+  	font-size: ;
+  	background: #AACBE3;
   	display: inline-block;
+  	transition-duration: 1s;
+  	overflow:hidden;
+}
+.main-information{
+	position: absolute;
+	bottom: 2%;
+	background-color: #AACBE3;
+	margin-top: 0.3%;
+	width: 100%;
+	height: 102.6%
+}
+.main-information-active{
+	transform: translateY(,-2.6%);
+	-webkit-transform: translateY(-2.6%);
+}
+.main_content, .main_content h1{
+	display: inline-block;
+	text-align: center;
+	color: #854A3E;
+}
+.centered-name{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+.bio{
+	display: inline-block;
+	position: absolute;
+}
+.languages{
+	display: inline-block;
+	position: absolute;
+	top: 60%;
+	left: 65%;
 }
 .left_side {
 	position: absolute;
   	top: 0px;
   	height: 100%;
   	width: 100%;
-  	background: #E4E4E4;
+  	background: #95B0AD;
   	font-size: initial;
   	display: inline-block;
-  	left: -80%;
+  	left: -90%;
+  	-webkit-transition: all 1000ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
   	transition-duration: 1s;
 }
 .left_side_active {
-	background: #666666;
-	transform: translateX(60%);
-	z-index: 200;
+	background: #21394A;
+	transform: translate(70%,2.2%);
+	-webkit-transform: translate(70%,2.2%);
+	z-index: 400;
+	box-shadow: 13px 0 15px -10px rgba(0,0,0,.31);
 }
 .side_content {
 	width: 80%;
@@ -101,15 +144,18 @@ body {
   	height: 100%;
   	width: 100%;
   	font-size: initial;
-  	background: #E4E4E4;
+  	background: #95B0AD;
   	display: inline-block;
   	right: -90%;
+  	-webkit-transition: all 1000ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
   	transition-duration: 1s;
 }
 .right_side_active {
-	background: #666666;
-	transform: translate(-70%);
-	z-index: 200;
+	background: #21394A;
+	transform: translate(-70%, 2.2%);
+	-webkit-transform: translateX(-70%, 2.2%);
+	z-index: 400;
+	box-shadow: 13px 0 15px -10px rgba(0,0,0,.31);
 }
 
 /* FONTS AND STYLING */
@@ -118,13 +164,21 @@ body {
 }
 
 .main_content h1 {
-	font-size: 36px;
+	font-size: 48px;
 	margin-left: auto;
 	margin-right: auto;
 }
 .main_content h3 {
-	font-size: 24px;
+	font-size: 15px;
 }
 .main_content p {
 
+}
+.languages p {
+
+}
+/* IMAGES */
+.side_content > img {
+	margin-left: 325px;
+	margin-top: 3.2%;
 }
