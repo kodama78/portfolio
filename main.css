@@ -71,6 +71,10 @@ body {
   	display: inline-block;
   	overflow:hidden;
 }
+.main-content-holder{
+	width: 100%;
+	height: 100%;
+}
 .main-information{
 	/*position: absolute;*/
 	bottom: 2%;
@@ -98,12 +102,13 @@ body {
 	display: block;
   	font-size: 2em;
   	position: relative;
-  	margin-top: 1%;
+  	margin-top: 2%;
+  	margin-left: 1%; 
   	width: 20%;
 }
 .logo-container {
 	width: 20%;
-	display: inline-block;
+	margin-bottom: 5%;
 }
 i.logo{
 	font-size: 35px;
@@ -143,11 +148,21 @@ i.logo{
 	z-index: 400;
 	box-shadow: 13px 0 15px -10px rgba(0,0,0,.8);
 }
-.side_content {
+.about-me{
 	width: 80%;
+	height: 100%;
+	padding: 5px;
+}
+.side_content {
+	width: 100%;
   	height: 100%;
   	position: relative;
   	display: inline-block;
+  	color: #E3ABAA;
+}
+.side_content h1, h3, p{
+	padding: 5px;
+	margin: 10px;
 }
 .side_handle {
 	width: 10%;
@@ -174,7 +189,11 @@ i.logo{
 	z-index: 400;
 	box-shadow: -13px 0 15px -10px rgba(0,0,0,.8);
 }
-
+.portfolio{
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+}
 /* FONTS AND STYLING */
 body {
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -198,7 +217,8 @@ body a{
 
 }
 /* IMAGES */
-.side_content > img {
+.side_content img {
 	margin-left: 325px;
 	margin-top: 3.2%;
+	float: left;
 }

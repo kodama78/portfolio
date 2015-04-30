@@ -1,31 +1,35 @@
 $( document ).ready(function() {
 	
-	var $leftside = $('.left_side');
-	var $rightside = $('.right_side');
-	var $maininformation = $('.main-information');
+	var $leftSide = $('.left_side');
+	var $rightSide = $('.right_side');
+	var $mainContentHolder = $('.main-content-holder');
+	var $mainInformation = $('.main-information');
 
-	$leftside.click(function(){
+	$leftSide.click(function(){
 		$(this).toggleClass('left_side_active');
-		$maininformation.addClass('main-information-active');
-		if ($rightside.hasClass('right_side_active')) {
-			$rightside.removeClass('right_side_active');
+		$mainInformation.toggleClass('main-information-active');
+		if ($rightSide.hasClass('right_side_active')) {
+			$rightSide.removeClass('right_side_active');
 		}
 	});
 
-	$rightside.click(function(){
+	$rightSide.click(function(){
 		$(this).toggleClass('right_side_active');
-		$maininformation.addClass('main-information-active');
-		if ($leftside.hasClass('left_side_active')) {
-			$leftside.removeClass('left_side_active');
+		$mainInformation.addClass('main-information-active');
+		if ($leftSide.hasClass('left_side_active')) {
+			$leftSide.removeClass('left_side_active');
 		}
 	});
-	$maininformation.click(function(){
-		if ($leftside.hasClass('left_side_active') || $rightside.hasClass('right_side_active')) {
-			$leftside.removeClass('left_side_active');
-			$rightside.removeClass('right_side_active');
+	$mainContentHolder.click(function(){
+		if ($leftSide.hasClass('left_side_active') || $rightSide.hasClass('right_side_active')) {
+			$leftSide.removeClass('left_side_active');
+			$rightSide.removeClass('right_side_active');
 		}
-		if ($maininformation.hasClass('main-information-active')) {
-			$maininformation.removeClass('main-information-active');
+		if ($mainInformation.hasClass('main-information-active')) {
+			$mainInformation.removeClass('main-information-active');
 		}
 	});
+	if (!$leftSide.hasClass("left_side_active") && !$rightSide.hasClass("right_side_active")) {
+    	$mainInformation.removeClass('main-information-active');
+    }
 });	
