@@ -30,6 +30,6 @@ $( document ).ready(function() {
 		}
 	});
 	if (!$leftSide.hasClass("left_side_active") && !$rightSide.hasClass("right_side_active")) {
-    	$mainInformation.removeClass('main-information-active');
+    	$mainnformation.removeClass('main-information-active');
     }
 });	

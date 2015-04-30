@@ -1,224 +1,29 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
-/*
-
-=======================================
-=======================================
-*/
-html{
-	height: 100vh;
-}
-body {
-	height: 100%;
-}
-/* BODY */
-.main_content{
-	position: absolute;
-  	left: 10%;
-  	width: 80%;
-  	height: 100%;
-  	min-height: 500px;
-  	font-size: ;
-  	background: #AACBE3;
-  	display: inline-block;
-  	overflow:hidden;
-}
-.main-content-holder{
-	width: 100%;
-	height: 100%;
-}
-.main-information{
-	/*position: absolute;*/
-	bottom: 2%;
-	background-color: #AACBE3;
-	margin-top: 0.3%;
-	width: 100%;
-	height: 102.6%;
-	transition-duration: 1.5s;
-}
-.main-information-active{
-	opacity: 0;
-}
-.main_content, .main_content h1{
-	display: inline-block;
-	text-align: center;
-	color: #854A3E;
-}
-.centered-name{
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translateY(-50%) translateX(-50%);
-}
-.social{
-	display: block;
-  	font-size: 2em;
-  	position: relative;
-  	margin-top: 2%;
-  	margin-left: 1%; 
-  	width: 20%;
-}
-.logo-container {
-	width: 20%;
-	margin-bottom: 5%;
-}
-i.logo{
-	font-size: 35px;
-	transition-duration: 0.5s;
-}
-	
-.logo:hover{
-	-webkit-transform: scale(1.25,1.25);
-	transform: scale(1.25,1.25);
-}
-.bio{
-	display: inline-block;
-	position: absolute;
-}
-.languages{
-	display: inline-block;
-	position: absolute;
-	top: 60%;
-	left: 65%;
-}
 .left_side {
 	position: absolute;
-  	top: 0px;
-  	height: 100%;
-  	width: 100%;
-  	background: #95B0AD;
-  	font-size: initial;
-  	display: inline-block;
-  	left: -90%;
-  	-webkit-transition: all 1000ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
-  	transition-duration: 1s;
-}
-.left_side_active {
-	background: #21394A;
-	transform: translate(70%,2.2%);
-	-webkit-transform: translate(70%,2.2%);
-	z-index: 400;
-	box-shadow: 13px 0 15px -10px rgba(0,0,0,.8);
-}
-.about-me{
-	width: 80%;
+	top: 2%;
+	display: inline-block;
+	width: 70%;
 	height: 100%;
-	padding: 5px;
+	background-color: blue;
+	transform: translateX(-100%);
+	z-index:3;
 }
-.side_content {
-	width: 100%;
-  	height: 100%;
-  	position: relative;
-  	display: inline-block;
-  	color: #E3ABAA;
-}
-.side_content h1, h3, p{
-	padding: 5px;
-	margin: 10px;
-}
-.side_handle {
-	width: 10%;
-  	height: 100%;
-  	position: absolute;
-  	display: inline-block;
-}
-.right_side {
+.side_handle_left{
 	position: absolute;
-  	top: 0px;
-  	height: 100%;
-  	width: 100%;
-  	font-size: initial;
-  	background: #95B0AD;
-  	display: inline-block;
-  	right: -90%;
-  	-webkit-transition: all 1000ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
-  	transition-duration: 1s;
-}
-.right_side_active {
-	background: #21394A;
-	transform: translate(-70%, 2.2%);
-	-webkit-transform: translateX(-70%, 2.2%);
-	z-index: 400;
-	box-shadow: -13px 0 15px -10px rgba(0,0,0,.8);
-}
-.portfolio{
-	width: 100%;
+	right: 0px;
+	width: 10%;
+	background-color: lavender;
 	height: 100%;
-	padding: 5px;
-}
-/* FONTS AND STYLING */
-body {
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-body a{
-	text-decoration: none;
-	color: #21394A;
-}
-.main_content h1 {
-	font-size: 80px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-bottom: 20px;
-	border-bottom: 1px solid;
-}
-.main_content h3 {
-	font-size: 20px;
-	margin-top: 20px;
-}
-.languages p {
+	transform: translateX(80%) scaleX(1);
 
 }
-/* IMAGES */
-.side_content img {
-	margin-left: 325px;
-	margin-top: 3.2%;
-	float: left;
+
+
+.main_content {
+	width: 88.68%;
+  	height: 100%;
+  	background-color: red;
+  	min-height: 500px;
+  	z-index: 1;
+  	margin: 0 auto;
 }
