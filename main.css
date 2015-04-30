@@ -57,7 +57,6 @@ html{
 	height: 100vh;
 }
 body {
-	font-size: 0px;
 	height: 100%;
 }
 /* BODY */
@@ -66,25 +65,23 @@ body {
   	left: 10%;
   	width: 80%;
   	height: 100%;
-  	margin-top: 0.3%;
   	min-height: 500px;
   	font-size: ;
   	background: #AACBE3;
   	display: inline-block;
-  	transition-duration: 1s;
   	overflow:hidden;
 }
 .main-information{
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 2%;
 	background-color: #AACBE3;
 	margin-top: 0.3%;
 	width: 100%;
-	height: 102.6%
+	height: 102.6%;
+	transition-duration: 1.5s;
 }
 .main-information-active{
-	transform: translateY(,-2.6%);
-	-webkit-transform: translateY(-2.6%);
+	opacity: 0;
 }
 .main_content, .main_content h1{
 	display: inline-block;
@@ -96,6 +93,26 @@ body {
 	top: 40%;
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
+}
+.social{
+	display: block;
+  	font-size: 2em;
+  	position: relative;
+  	margin-top: 1%;
+  	width: 20%;
+}
+.logo-container {
+	width: 20%;
+	display: inline-block;
+}
+i.logo{
+	font-size: 35px;
+	transition-duration: 0.5s;
+}
+	
+.logo:hover{
+	-webkit-transform: scale(1.25,1.25);
+	transform: scale(1.25,1.25);
 }
 .bio{
 	display: inline-block;
@@ -124,7 +141,7 @@ body {
 	transform: translate(70%,2.2%);
 	-webkit-transform: translate(70%,2.2%);
 	z-index: 400;
-	box-shadow: 13px 0 15px -10px rgba(0,0,0,.31);
+	box-shadow: 13px 0 15px -10px rgba(0,0,0,.8);
 }
 .side_content {
 	width: 80%;
@@ -155,24 +172,27 @@ body {
 	transform: translate(-70%, 2.2%);
 	-webkit-transform: translateX(-70%, 2.2%);
 	z-index: 400;
-	box-shadow: 13px 0 15px -10px rgba(0,0,0,.31);
+	box-shadow: -13px 0 15px -10px rgba(0,0,0,.8);
 }
 
 /* FONTS AND STYLING */
 body {
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
-
+body a{
+	text-decoration: none;
+	color: #21394A;
+}
 .main_content h1 {
-	font-size: 48px;
+	font-size: 80px;
 	margin-left: auto;
 	margin-right: auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid;
 }
 .main_content h3 {
-	font-size: 15px;
-}
-.main_content p {
-
+	font-size: 20px;
+	margin-top: 20px;
 }
 .languages p {
 
