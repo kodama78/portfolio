@@ -1,35 +1,29 @@
+
+
 $( document ).ready(function() {
-	
+	var $sideHandLeft = $('.side_handle_left');
 	var $leftSide = $('.left_side');
+	var $mainContent = $('.main_content');
+	var $sideHandRight = $('.side_handle_right');
 	var $rightSide = $('.right_side');
-	var $mainContentHolder = $('.main-content-holder');
-	var $mainInformation = $('.main-information');
+	
+	$sideHandLeft.click(function(){
+		$(this).toggleClass('side_handle_left_active');
+		$leftSide.toggleClass('left_side_active');
+		$rightSide.removeClass('right_side_active');
+		$sideHandRight.removeClass('side_handle_right_active');
 
-	$leftSide.click(function(){
-		$(this).toggleClass('left_side_active');
-		$mainInformation.toggleClass('main-information-active');
-		if ($rightSide.hasClass('right_side_active')) {
-			$rightSide.removeClass('right_side_active');
-		}
 	});
-
-	$rightSide.click(function(){
-		$(this).toggleClass('right_side_active');
-		$mainInformation.addClass('main-information-active');
-		if ($leftSide.hasClass('left_side_active')) {
-			$leftSide.removeClass('left_side_active');
-		}
+	$mainContent.click(function(){
+		$leftSide.removeClass('left_side_active');
+		$sideHandLeft.removeClass('side_handle_left_active');
+		$rightSide.removeClass('right_side_active');
+		$sideHandRight.removeClass('side_handle_right_active');
 	});
-	$mainContentHolder.click(function(){
-		if ($leftSide.hasClass('left_side_active') || $rightSide.hasClass('right_side_active')) {
-			$leftSide.removeClass('left_side_active');
-			$rightSide.removeClass('right_side_active');
-		}
-		if ($mainInformation.hasClass('main-information-active')) {
-			$mainInformation.removeClass('main-information-active');
-		}
+	$sideHandRight.click(function(){
+		$(this).toggleClass('side_handle_right_active');
+		$rightSide.toggleClass('right_side_active');
+		$leftSide.removeClass('left_side_active');
+		$sideHandLeft.removeClass('side_handle_left_active');
 	});
-	if (!$leftSide.hasClass("left_side_active") && !$rightSide.hasClass("right_side_active")) {
-    	$mainnformation.removeClass('main-information-active');
-    }
 });	
