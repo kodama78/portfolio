@@ -77,12 +77,12 @@ body {
 	width: 10%;
 	background-color: lavender;
 	height: 100vh;
-	transition-duration: 2s;
-	-webkit-transition-duration: 2s;
-	-webkit-transform: translateX(2%) scaleX(0);
+	-webkit-transform: translateX(2%) scaleX(1);
 	transform: translateX(2%) scaleX(1);
 	transform-origin: 20% 50%;
 	-webkit-transform-origin: 20% 50%;
+	transition-duration: 2s;
+	-webkit-transition-duration: 2s;
 }
 .side_handle_right_active{
 	transform: translateX(80%) scaleX(0);
