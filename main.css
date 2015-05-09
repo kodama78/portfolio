@@ -1,123 +1,49 @@
-body {
+body{
+	height: 100vh;
 	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-}
-.full-body{
-}
-
-.left_side {
 	position: absolute;
-	left: 2%;
+	margin: 0;
+}
+.main-body{
+	width: 100vw;
+	background-image: url("assets/images/Elephant.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	-webkit-filter: grayscale(100%);
+}
+.homepage{
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+header {
+	width: 100%;
+	height: 20%;
+	background-color: white;
+	font-size: 3em;
+}
+.navigation li{
+	display: inline-block;
+}
+/*
+================================
+CURTAIN (HIDES MAIN CONTENT)
+================================
+*/
+.curtain{
+	position: absolute;
+	top: 0;
+	left: 0;
 	display: inline-block;
 	width: 100%;
-	height: 100vh;
-	background-color: blue;
-	-webkit-transform: translate(-100%, 0);
-	transform: translate(-100%, 0);
-	transition-duration: 2s;
-	-webkit-transition-duration: 2s;
-	z-index:3;
-
+	height: 100%;
+	background-color: black;
+	text-align: center;
 }
-.left_side_active {
-	-webkit-transform: translate(-17%%, 1%);
-	transform: translate(-17%, 1%);
-
-}
-.side_handle_left{
-	position: absolute;
-	right: 0px;
-	width: 10%;
-	background-color: lavender;
-	height: 100vh;
-	transform: translateX(80%) scaleX(1);
-	-webkit-transform: translateX(80%) scaleX(1);
-	-webkit-transform-origin:20% 50%;
-	transform-origin:20% 50%;
-	transition-duration: 2s;
-	-webkit-transition-duration: 2s;
-
-	
-}
-.side_handle_left_active{
-	transform: translateX(80%) scaleX(0);
-	-webkit-transform: translateX(80%) scaleX(0);
-}
-.main_content {
-	position: absolute;
-	left: 10%;
-	display: inline-block;
-	width: 80%%;
-  	height: 100%;
-  	background-color: red;
-  	min-height: 100vh;
-  	z-index: 1;
-  	
-}
-.right_side{
-	position: absolute;
-	left: 90%;
-	display: inline-block;
-	width: 100%;
-	height: 100vh;
-	background-color: blue;
-	-webkit-transform: translate(10%, 0);
-	transform: translate(10%, 0);
-	transition-duration: 2s;
-	-webkit-transition-duration: 2s;
-	z-index: 3;
-}
-.right_side_active {
-	-webkit-transform: translate(-75%%, 1%);
-}
-.side_handle_right{
-	position: absolute;	
-	left: -10.15%;
-	width: 10%;
-	background-color: lavender;
-	height: 100vh;
-	-webkit-transform: translateX(2%) scaleX(1);
-	transform: translateX(2%) scaleX(1);
-	transform-origin: 20% 50%;
-	-webkit-transform-origin: 20% 50%;
-	transition-duration: 2s;
-	-webkit-transition-duration: 2s;
-}
-.side_handle_right_active{
-	transform: translateX(80%) scaleX(0);
-	-webkit-transform: translateX(80%) scaleX(0);
-}
-
-
-/*
-==============================================
-ELEMENTS ON MAIN PAGE
-==============================================
-*/
-/*
-==============================================
-SOCIAL MEDIA TAB
-==============================================
-*/
-.social{
-	display: block;
-  	font-size: 2em;
-  	position: relative;
-  	margin-top: 2%;
-  	margin-left: 1%; 
-  	width: 20%;
-}
-.logo-container {
-	width: 20%;
-	margin-bottom: 5%;
-}
-i.logo{
-	font-size: 35px;
-	transition-duration: 0.5s;
-}
-	
-.logo:hover{
-	-webkit-transform: scale(1.25,1.25);
-	transform: scale(1.25,1.25);
+.curtain_button{
+	width: 120px;
+	height: 60px;
+	position: relative;
+	top: 50%;
+	font-size: 16px;
 }
