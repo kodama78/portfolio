@@ -1,49 +1,12 @@
-body{
-	height: 100vh;
-	width: 100vw;
+.nopadding{
+	padding: 0;
+}
+.night_sky{
+	transform: scale(1.5);
+}
+.forest{
 	position: absolute;
-	margin: 0;
-}
-.main-body{
-	width: 100vw;
-	background-image: url("assets/images/Elephant.jpg");
-	background-size: 100%;
-	background-repeat: no-repeat;
-	-webkit-filter: grayscale(100%);
-}
-.homepage{
-	height: 100%;
-	width: 100%;
-	position: relative;
-}
-header {
-	width: 100%;
-	height: 20%;
-	background-color: white;
-	font-size: 3em;
-}
-.navigation li{
-	display: inline-block;
-}
-/*
-================================
-CURTAIN (HIDES MAIN CONTENT)
-================================
-*/
-.curtain{
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: inline-block;
-	width: 100%;
-	height: 100%;
-	background-color: black;
-	text-align: center;
-}
-.curtain_button{
-	width: 120px;
-	height: 60px;
-	position: relative;
-	top: 50%;
-	font-size: 16px;
+	top:0;
+	left:0;
+
 }

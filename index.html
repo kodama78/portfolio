@@ -2,30 +2,33 @@
 <html>
 <head>
 	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+	<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.js"></script>
+	<script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/includes/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src = "main.js"></script>
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<link rel="stylesheet" type="text/css" href="assets/includes/font-awesome-4.3.0/css/font-awesome.min.css">
 	<title>My webpage</title>
 </head>
 <body>
-<!-- main influence http://smallstudio.com.au -->
-	<div class="main-body">
-		<div class="homepage">
-			<header>
-				<h1>Shawn Otomo</h1>
-				<ul class="navigation">
-					<li>Home</li>
-					<li>Projects</li>
-					<li>About Me</li>
-					<li>Contact Me</li>
-				</ul>
-			</header>
-		</div>
-		<div class="curtain">
-			<button class="curtain_button">Click Me</button>
+	<header class="main_header col-md-12">
+		
+		<h1>Shawn Otomo</h1>
+	</header>
+	<!-- MAIN PAGE -->
+	<div class="scene col-md-12 nopadding" id="scene1">
+		<div class="starry_background col-md-12 nopadding" id="starry_night">
+			<img src="assets/images/night_sky.png" class="night_sky	">
+			<!-- <img src="assets/images/forest.png" class="forest">
+			<img src="assets/images/campfire.png"> -->
 		</div>
 	</div>
-	
-	
+		<!-- PROJECTS PAGE -->
+	<div class="scene" id="scene2">
+		
+	</div>
+
 </body>
 </html>
