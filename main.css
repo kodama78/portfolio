@@ -1,8 +1,27 @@
+body{
+	
+}
+.main_header{
+	position: fixed;
+	background-image: url('assets/images/headerbackground.png');
+	color: white;
+	z-index: 1;
+}
+.logo_container{
+	display: inline-block;
+}
+.logo{
+	color: white;
+	font-size: 30px;
+}
 .nopadding{
 	padding: 0;
 }
-.night_sky{
-	transform: scale(1.5);
+#scene1{
+	overflow: hidden;
+}
+#starry_night{
+	transform: scale(1.1);
 }
 .forest{
 	position: absolute;
