@@ -58,7 +58,8 @@ SCENE 2
 */
 #scene2{
 	position: absolute;
-	display: block;
+	display: inline-block;
+	transform: translateY(20%);
 
 }
 .forest{
