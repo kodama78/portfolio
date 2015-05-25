@@ -35,10 +35,10 @@ SCENE 1
 	display: block;
 }
 .night_sky{
-	opacity: 0.8;
+	opacity: 0.7;
 }
 #starry_night{
-	transform: scale(1.2);
+	transform: scale(2);
 }
 
 .intro_text{
@@ -46,10 +46,10 @@ SCENE 1
 	top: 10%;
 	left: 10%;
 	color: white;
-	font-size: 35px;
+	font-size: 20px;
 }
 .intro_text > h3{
-	font-size: 40px
+	font-size: 30px
 }
 /*
 ====================================
@@ -57,11 +57,16 @@ SCENE 2
 ====================================
 */
 #scene2{
-	position: absolute;
+	position: relative;
 	display: inline-block;
-	transform: translateY(20%);
-
 }
 .forest{
-	opacity: 0.2;
+	opacity: 0.8;
+}
+.languages{
+	position: absolute;
+	top: 20%;
+	left:20%;
+	color: white;
+
 }
