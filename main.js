@@ -32,10 +32,19 @@ $(document).ready(function(){
 		.add(TweenMax.to('.intro_text', 1, {
 			opacity: 0
 		}))
-		// .add(TweenMax.from)
+		.add(TweenMax.from('.scene2_header', 0.5, {
+			opacity: 0
+		}))
+		.add(TweenMax.to('.scene2_header', 1.5,{
+			opacity: 0
+		}), '2')
+		.add(TweenMax.to('.skills', 1, {
+			opacity: 1,
+			bottom: '65%'
+		}), '3');
 	var scene2 = new ScrollScene({
 		triggerElement: '#scene2',
-		offset: -150
+		offset: -250
 	}).setTween(scene2_tween).addTo(controller).addIndicators();
 	
 });

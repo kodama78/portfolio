@@ -63,10 +63,21 @@ SCENE 2
 .forest{
 	opacity: 0.8;
 }
-.languages{
+.scene2_header{
 	position: absolute;
-	top: 20%;
+	top: -15%;
 	left:20%;
 	color: white;
-
+}
+.skills{
+	position: absolute;
+	bottom: 5%;
+	left: 20%;
+	color: white;
+	opacity: 0;
+}
+.skills > p{
+	font-size: 30px;
+	display: inline-block;
+	margin-right: 5%;
 }
