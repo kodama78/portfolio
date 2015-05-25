@@ -23,6 +23,9 @@ HEADER
 	color: white;
 	font-size: 30px;
 }
+.nav{
+	color: white;
+}
 /*
 ====================================
 SCENE 1
@@ -61,7 +64,8 @@ SCENE 2
 	display: inline-block;
 }
 .forest{
-	opacity: 0.8;
+	opacity: 0.6;
+	z-index: 2;
 }
 .scene2_header{
 	position: absolute;
@@ -76,7 +80,7 @@ SCENE 2
 	color: white;
 	opacity: 0;
 }
-.skills > p{
+.skills p, i{
 	font-size: 30px;
 	display: inline-block;
 	margin-right: 5%;

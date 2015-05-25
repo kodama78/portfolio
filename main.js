@@ -7,9 +7,9 @@ $(document).ready(function(){
 		.add(TweenMax.to('#starry_night', 2, {
 			transform: 'scale(1)'
 		}))
-		.add(TweenMax.from('#name', 1, {
-			opacity: 0
-		}), '2')
+		// .add(TweenMax.from('#name', 1, {
+		// 	opacity: 0
+		// }), '2')
 		.add(TweenMax.from('.intro_text', 1, {
 			opacity: 0,
 		}),'0.5')
