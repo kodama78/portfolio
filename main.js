@@ -1,7 +1,35 @@
 var controller;
-
 controller = new ScrollMagic();
+
+var skills = ['HTML5','CSS3','Javascript','Jquery','PHP'];
+
+var test_case = ['h']
+
+//Star function that randomly changes location of stars in star_layer
+// function star_maker(){
+// 	for (var i = 0; i < 13; i++){
+// 		var star = $('<i>', {
+// 			class: 'fa fa-star',
+// 			color: 'white',
+// 			position: 'absolute',
+// 			display: 'inline-block'
+
+// 		});
+// 	}
+// }
+
+// //Skill function that will randomly place the letters into certain spots
+// function skill_maker{
+// 	for (var i = 0; i < skills.length; i++){
+// 		var skill_string = skills[i];
+// 		for (var j = 0; j < skill_string.length; j++){
+// 			var letter = skill_string[j];
+			
+// 		}
+// 	}
+// }
 $(document).ready(function(){
+	
 	//Adds scaling and fade ins for header text and intro text
 	var scene1_tween = new TimelineMax()
 		.add(TweenMax.to('#starry_night', 2, {
@@ -27,7 +55,7 @@ $(document).ready(function(){
 		//duration: 500
 	}).setPin('#starry_night').addTo(controller);
 	
-	//Might be used for scene 2
+	//Scene 2
 	var scene2_tween = new TimelineMax()
 		.add(TweenMax.to('.intro_text', 1, {
 			opacity: 0
