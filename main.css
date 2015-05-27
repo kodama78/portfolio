@@ -15,7 +15,7 @@ HEADER
 	color: white;
 	z-index: 1;
 	text-align: center;
-	opacity: 0.5;
+	opacity: 1;
 }
 .logo_container{
 	display: inline-block;
@@ -44,7 +44,7 @@ SCENE 1
 	display: block;
 }
 .night_sky{
-	opacity: 0.6;
+	opacity: 1;
 }
 #starry_night{
 	transform: scale(2);
@@ -73,7 +73,7 @@ SCENE 2
 	display: inline-block;
 }
 .forest{
-	opacity: 0.5;
+	opacity: 1;
 	z-index: 2;
 }
 .scene2_header{
