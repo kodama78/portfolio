@@ -6,28 +6,27 @@ var skills = ['HTML5','CSS3','Javascript','Jquery','PHP'];
 var test_case = ['h']
 
 //Star function that randomly changes location of stars in star_layer
-// function star_maker(){
-// 	for (var i = 0; i < 13; i++){
-// 		var star = $('<i>', {
-// 			class: 'fa fa-star',
-// 			color: 'white',
-// 			position: 'absolute',
-// 			display: 'inline-block'
+function star_maker(){
+	for (var i = 0; i < 13; i++){
+		var star = $('<i>', {
+			class: 'fa fa-star',
+			color: 'white',
+			position: 'absolute',
+			display: 'inline-block'
+		});
+	}
+}
 
-// 		});
-// 	}
-// }
-
-// //Skill function that will randomly place the letters into certain spots
-// function skill_maker{
-// 	for (var i = 0; i < skills.length; i++){
-// 		var skill_string = skills[i];
-// 		for (var j = 0; j < skill_string.length; j++){
-// 			var letter = skill_string[j];
-			
-// 		}
-// 	}
-// }
+//Skill function that will randomly place the letters into certain spots
+function skill_maker{
+	for (var i = 0; i < skills.length; i++){
+		var skill_string = skills[i];
+		for (var j = 0; j < skill_string.length; j++){
+			var letter = skill_string[j];
+			var random = 
+		}
+	}
+}
 $(document).ready(function(){
 	
 	//Adds scaling and fade ins for header text and intro text
