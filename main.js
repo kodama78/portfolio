@@ -1,29 +1,39 @@
+//global variables for parallax plugin Scrollmagic
 var controller;
 controller = new ScrollMagic();
 
-var skills = ['HTML5','CSS3','Javascript','Jquery','PHP'];
-
-var test_case = ['h']
+//Global variables for star_maker function
+var skills = ['HTML5'];
+var test_case = 
+var starfield = $('.star_layer');
+var offset = 5;
+var half_offset = offset/2;
+var shadow_offset = 2;
+var adjusted_width = starfield.width()/half_offset;
+var adjusted_height = starfield.height()/half_offset;
 
 //Star function that randomly changes location of stars in star_layer
-function star_maker(){
-	for (var i = 0; i < 13; i++){
-		var star = $('<i>', {
-			class: 'fa fa-star',
-			color: 'white',
-			position: 'absolute',
-			display: 'inline-block'
-		});
-	}
-}
+// function star_maker(){
+// 	for (var i = 0; i < 13; i++){
+// 		var star = $('<i>', {
+// 			class: 'fa fa-star',
+// 			color: 'white',
+// 			position: 'absolute',
+// 			display: 'inline-block'
+// 		});
+// 	}
+// }
 
 //Skill function that will randomly place the letters into certain spots
-function skill_maker{
-	for (var i = 0; i < skills.length; i++){
-		var skill_string = skills[i];
-		for (var j = 0; j < skill_string.length; j++){
-			var letter = skill_string[j];
-			var random = 
+function star_maker(){
+	for(var i = 0; i < skills.length; i++){
+		var word = skills[i];
+		for(var j = 0; j< word.length; i++){
+			var letter = word[j];
+			var left_random = Math.random()*offset - half_offset;
+			var top_random = Math.random()*offset - half_offset;
+			var left_offset = Math.floor()(left_random*adjusted_width);
+			var top_offset = Math.floor()(top_random*adjusted_height);
 		}
 	}
 }
