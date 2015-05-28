@@ -15,7 +15,7 @@ HEADER
 	color: white;
 	z-index: 1;
 	text-align: center;
-	opacity: 0.5;
+	opacity: 1;
 }
 .logo_container{
 	display: inline-block;
@@ -29,6 +29,8 @@ HEADER
 }
 .nav{
 	color: white;
+	text-decoration: none;
+	font-size: 25px;
 }
 /*
 ====================================
@@ -44,12 +46,11 @@ SCENE 1
 	display: block;
 }
 .night_sky{
-	opacity: 0.6;
+	opacity: 1;
 }
 #starry_night{
 	transform: scale(2);
 }
-
 .intro_text{
 	position: absolute;
 	top: 10%;
@@ -58,7 +59,7 @@ SCENE 1
 	font-size: 20px;
 }
 .intro_text > h3{
-	font-size: 30px
+	font-size: 30px;
 }
 /*.star_layer{
 	color: white;
@@ -71,42 +72,41 @@ STAR FUNCTION STYLING
 .star_layer{
 	height: 100%;
 	width:100%;
-	position: relative;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*transform: translateX(-50%) translateY(-50%);*/
 }
 .letter{
     opacity: 0;
     color: white;
     transform: scale(0);
     transition-duration: .25s;
-    opacity: 0;
+    font-size: 40px;
 }
-
-#starskills{
+/*#starskills{
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
+    
+}*/
 #starfield{
     height: 100%;
     width: 100%;
     background-color: black;
     overflow: hidden;
-
 }
-#starskills span{
-    position: relative;
-
-    
+.star_layer span{
+    position: relative; 
 }
 .star{
     position: absolute;
     left: 0px;
     top: 0px;
-    color: yellow;
-    font-size: 20%;
+    color: white;
+    font-size: 120%;
     opacity: .5;
-    text-shadow: 5px 5px light-yellow;
+    text-shadow: 5px 5px lightyellow;
 }
 .starshining{
     -webkit-animation:startwinkle 1s ease-in ;
@@ -128,6 +128,7 @@ STAR FUNCTION STYLING
     }
     100%{
         opacity: .6;
+    }
 }
 /*
 ====================================
@@ -139,7 +140,7 @@ SCENE 2
 	display: inline-block;
 }
 .forest{
-	opacity: 0.5;
+	opacity: 1;
 	z-index: 2;
 }
 .scene2_header{
