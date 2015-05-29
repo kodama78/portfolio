@@ -57,11 +57,11 @@ function star_maker() {
                         left: '2px',
                         top: '2px',
                         opacity: .2,
-                        'font-size': '10%'
+                        'font-size': '40%'
                     }, 2000, function() {
                         _this_letter.animate({
                             opacity: 1
-                        }, 150);
+                        }, 100);
                         _this_star.css('opacity', 0);
                     })
                 }, showtime);
@@ -97,10 +97,10 @@ $(document).ready(function() {
         //duration: 500
     }).setPin('#starry_night').addTo(controller);
     //pins the star layer to #starry_night
-    var star_pin = new ScrollScene({
-    	triggerElement: '.star_layer',
-    	offset: 323,
-    }).setPin('#starry_night').addTo(controller);
+    // var star_pin = new ScrollScene({
+    // 	triggerElement: '.star_layer',
+    // 	offset: 323,
+    // }).setPin('#starry_night').addTo(controller);
 
     //Scene 2
     var scene2_tween = new TimelineMax()
@@ -121,5 +121,10 @@ $(document).ready(function() {
         triggerElement: '#scene2',
         offset: -250
     }).setTween(scene2_tween).addTo(controller).addIndicators();
-    star_maker();
+
+    var star_mover = new ScrollScene({
+        triggerElement: '#scene2'
+    }).on('start', function(){
+        star_maker();
+    }).addTo(controller).addIndicators();
 });
