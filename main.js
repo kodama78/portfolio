@@ -3,14 +3,14 @@ var controller;
 controller = new ScrollMagic();
 
 //Global variables for star_maker function
-var skills = ['HTML5 ', 'CSS3 ', 'JAVASCRIPT ', 'PHP ', ];
+var skills = ['HTML5 ', 'CSS3 ', 'JAVASCRIPT ', 'PHP '];
 var starfield = null;
 var offset = null;
 var half_offset = null;
 var shadow_offset = null;
 var adjusted_width = null;
 var adjusted_height = null;
-
+var star_array = [];
 $(document).ready(function() {
 	starfield = $('.star_layer');
     offset = 2;
@@ -21,6 +21,39 @@ $(document).ready(function() {
 
 });
 //Skill function that will randomly place the letters into certain spots
+function star_object(span, star, letter, position_data){
+    this.span = span;
+    this.star = star;
+    this.letter = letter;
+    this.position_data = position_data;
+    this.go_home = function(){
+        var _this = this.span;
+        var _this_star = this.star;
+        var _this_letter = this.letter;
+        var _this_showtime = Math.random() * 2500 + 500;
+        var _this_left_shadow = this.position_data.left_random.toFixed(2) * shadow_offset;
+        var _this_top_shadow = this.position_data.top_random.toFixed(2) * shadow_offset;
+        _this = this;
+        setTimeout(function() {
+            _this_star.removeClass('starshining').css({
+                'text-shadow': _this_left_shadow + 'px ' + _this_top_shadow + 'px white',
+                '-webkit-filter': 'blur(' + _this_top_shadow + 'px)'
+            });
+            _this_star.animate({
+                left: '2px',
+                top: '2px',
+                opacity: .2,
+                'font-size': '40%'
+            }, 2000, function() {
+                _this_letter.animate({
+                    opacity: 1
+                }, 100);
+                _this_star.css('opacity', 0);
+            })
+        }, _this_showtime);        
+    }
+}
+
 function star_maker() {
     for (var i = 0; i < skills.length; i++) {
         var word = skills[i];
@@ -30,6 +63,10 @@ function star_maker() {
             var top_random = Math.random() * offset - half_offset;
             var left_offset = Math.floor(left_random * adjusted_width);
             var top_offset = Math.floor(top_random * adjusted_height);
+            var position_data={
+                left_random: left_random,
+                top_random: top_random,
+            }
             var span = $('<span>');
             var twinkle_start = Math.random() * 5;
             var star = $('<i>').addClass('fa fa-star starshining star').css({
@@ -41,38 +78,32 @@ function star_maker() {
                 text: letter,
                 class: 'letter'
             });
-            (function() {
-                var _this = span;
-                var _this_star = star;
-                var _this_letter = letter;
-                var showtime = Math.random() * 2500 + 500;
-                var _this_left_shadow = left_random.toFixed(2) * shadow_offset;
-                var _this_top_shadow = top_random.toFixed(2) * shadow_offset;
-                setTimeout(function() {
-                    _this_star.removeClass('starshining').css({
-                        'text-shadow': _this_left_shadow + 'px ' + _this_top_shadow + 'px white',
-                        '-webkit-filter': 'blur(' + _this_top_shadow + 'px)'
-                    });
-                    _this_star.animate({
-                        left: '2px',
-                        top: '2px',
-                        opacity: .2,
-                        'font-size': '40%'
-                    }, 2000, function() {
-                        _this_letter.animate({
-                            opacity: 1
-                        }, 100);
-                        _this_star.css('opacity', 0);
-                    })
-                }, showtime);
-            })();
+            var this_star = new star_object(span, star, letter, position_data);
+            star_array.push(this_star);
+            // (function shooting_star() {
+            //     var _this = span;
+            //     var _this_star = star;
+            //     var _this_letter = letter;
+            //     var showtime = Math.random() * 2500 + 500;
+            //     var _this_left_shadow = left_random.toFixed(2) * shadow_offset;
+            //     var _this_top_shadow = top_random.toFixed(2) * shadow_offset;
+
+            // })();
+
             span.append(star, letter);
             starfield.append(span);
         }
     }
 }
+//Calls the star_mover function to move the created stars
+function shooting_star(){
+    for(var i = 0; i < star_array.length; i++){
+        star_array[i].go_home();
+    }
+}
 $(document).ready(function() {
     //Adds scaling and fade ins for header text and intro text
+    star_maker();
     var scene1_tween = new TimelineMax()
         .add(TweenMax.to('#starry_night', 2, {
             transform: 'scale(1)'
@@ -85,18 +116,17 @@ $(document).ready(function() {
         }), '0.5')
     var scene1 = new ScrollScene({
             triggerElement: '#scene1',
-            //reverse: false,
-            offset: 520
-        })
-        .setTween(scene1_tween).addTo(controller).addIndicators();
+            reverse: false,
+            offset: 450
+        }).setTween(scene1_tween).addTo(controller).addIndicators();
 
     //pins the night_sky to screen
     var scene1_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 251,
+        offset: 277,
         //duration: 500
     }).setPin('#starry_night').addTo(controller);
-    //pins the star layer to #starry_night
+    
     // var star_pin = new ScrollScene({
     // 	triggerElement: '.star_layer',
     // 	offset: 323,
@@ -127,9 +157,9 @@ $(document).ready(function() {
         triggerElement: '#scene2',
         reverse: false
     }).on('start', function(){
-        star_maker();
+        shooting_star();
     }).addTo(controller).addIndicators();
-
+    //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
         triggerElement: '#starry_night',
         offset: 251,
