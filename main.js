@@ -93,7 +93,7 @@ $(document).ready(function() {
     //pins the night_sky to screen
     var scene1_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 323,
+        offset: 251,
         //duration: 500
     }).setPin('#starry_night').addTo(controller);
     //pins the star layer to #starry_night
@@ -122,9 +122,19 @@ $(document).ready(function() {
         offset: -250
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
+    //Scene that calls the star_maker function
     var star_mover = new ScrollScene({
-        triggerElement: '#scene2'
+        triggerElement: '#scene2',
+        reverse: false
     }).on('start', function(){
         star_maker();
     }).addTo(controller).addIndicators();
+
+    var star_layer_pin = new ScrollScene({
+        triggerElement: '#starry_night',
+        offset: 251,
+        //duration: 500
+    }).setPin('.star_layer',{
+        pushFollowers: true
+    }).addTo(controller);
 });
