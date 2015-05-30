@@ -4,10 +4,10 @@ controller = new ScrollMagic();
 
 //Global variables for star_maker function
 var asdf = null;
-var skills = ['HTML5 ', 'CSS3 ', 'JAVASCRIPT ', 'PHP '];
-var libraries = ['BOOTSTRAP', 'JQUERY'];
-var productivity = ['GIT', ];
-var title = ['TECHNICAL TOOLKIT'];
+var skills = ['HTML5', ' CSS3 ', ' JAVASCRIPT ', ' PHP'];
+var libraries = ['BOOTSTRAP', ' JQUERY'];
+var productivity = ['GIT'];
+var title = ['TECHNICAL', ' TOOLKIT'];
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -59,12 +59,14 @@ function star_object(span, star, letter, position_data){
 }
 
 function star_maker(array) {
-    var string_array = [];
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
+        word_string = array[0];
+        word_string = word_string.toLowerCase();
+        starfield = $('.'+word_string);
+        console.log('starfield is', starfield);
         for (var j = 0; j < word.length; j++) {
             var letter_string = word[j];
-            string_array.push(letter_string);
             var left_random = Math.random() * offset - half_offset;
             var top_random = Math.random() * offset - half_offset;
             var left_offset = Math.floor(left_random * adjusted_width);
@@ -85,15 +87,12 @@ function star_maker(array) {
                 class: 'letter'
             });
             var this_star = new star_object(span, star, letter, position_data);
+
             star_array.push(this_star);
             span.append(star, letter);
             starfield.append(span);
         }
     }
-    string_array = string_array.join('');
-    string_array = string_array.toLowerCase();
-    asdf = string_array;
-    return string_array;
 }
 //This will make fake stars that will be appended to the static star layer
 function fake_star_maker(array) {
