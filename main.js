@@ -3,7 +3,11 @@ var controller;
 controller = new ScrollMagic();
 
 //Global variables for star_maker function
+var asdf = null;
 var skills = ['HTML5 ', 'CSS3 ', 'JAVASCRIPT ', 'PHP '];
+var libraries = ['BOOTSTRAP', 'JQUERY'];
+var productivity = ['GIT', ];
+var title = ['TECHNICAL TOOLKIT'];
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -42,23 +46,25 @@ function star_object(span, star, letter, position_data){
             _this_star.animate({
                 left: '2px',
                 top: '2px',
-                opacity: .2,
-                'font-size': '40%'
-            }, 2000, function() {
+                opacity: .5,
+                'font-size': '300%'
+            }, 1000, function() {
                 _this_letter.animate({
                     opacity: 1
-                }, 100);
+                }, 150);
                 _this_star.css('opacity', 0);
             })
         }, _this_showtime);        
     }
 }
 
-function star_maker() {
-    for (var i = 0; i < skills.length; i++) {
-        var word = skills[i];
-        for (var j = 0; j < (word.length)*3; j++) {
-            var letter = word[j];
+function star_maker(array) {
+    var string_array = [];
+    for (var i = 0; i < array.length; i++) {
+        var word = array[i];
+        for (var j = 0; j < word.length; j++) {
+            var letter_string = word[j];
+            string_array.push(letter_string);
             var left_random = Math.random() * offset - half_offset;
             var top_random = Math.random() * offset - half_offset;
             var left_offset = Math.floor(left_random * adjusted_width);
@@ -75,23 +81,38 @@ function star_maker() {
                 '-webkit-animation-delay': twinkle_start + 's',
             });
             var letter = $('<span>', {
-                text: letter,
+                text: letter_string,
                 class: 'letter'
             });
             var this_star = new star_object(span, star, letter, position_data);
             star_array.push(this_star);
-            // (function shooting_star() {
-            //     var _this = span;
-            //     var _this_star = star;
-            //     var _this_letter = letter;
-            //     var showtime = Math.random() * 2500 + 500;
-            //     var _this_left_shadow = left_random.toFixed(2) * shadow_offset;
-            //     var _this_top_shadow = top_random.toFixed(2) * shadow_offset;
-
-            // })();
-
             span.append(star, letter);
             starfield.append(span);
+        }
+    }
+    string_array = string_array.join('');
+    string_array = string_array.toLowerCase();
+    asdf = string_array;
+    return string_array;
+}
+//This will make fake stars that will be appended to the static star layer
+function fake_star_maker(array) {
+    for (var i = 0; i < array.length; i++) {
+        var word = skills[i];
+        for (var j = 0; j < (word.length)*6; j++) {
+            var left_random = Math.random() * offset - half_offset;
+            var top_random = Math.random() * offset - half_offset;
+            var left_offset = Math.floor(left_random * adjusted_width);
+            var top_offset = Math.floor(top_random * adjusted_height);
+            var span = $('<span>');
+            var twinkle_start = Math.random() * 5;
+            var star = $('<i>').addClass('fa fa-star starshining star').css({
+                'left': left_offset + 'px',
+                'top': top_offset + 'px',
+                '-webkit-animation-delay': twinkle_start + 's',
+            });
+            span.append(star);
+            $('.star_layer1').append(span);
         }
     }
 }
@@ -102,8 +123,14 @@ function shooting_star(){
     }
 }
 $(document).ready(function() {
+    //creates the static stars on star_layer1
+    fake_star_maker(skills);
+    //creates the animated stars that will create the letters
+    star_maker(title);
+    // star_maker(skills);
+    // star_maker(libraries);
+    // star_maker(productivity);
     //Adds scaling and fade ins for header text and intro text
-    star_maker();
     var scene1_tween = new TimelineMax()
         .add(TweenMax.to('#starry_night', 2, {
             transform: 'scale(1)'
@@ -126,11 +153,6 @@ $(document).ready(function() {
         offset: 277,
         //duration: 500
     }).setPin('#starry_night').addTo(controller);
-    
-    // var star_pin = new ScrollScene({
-    // 	triggerElement: '.star_layer',
-    // 	offset: 323,
-    // }).setPin('#starry_night').addTo(controller);
 
     //Scene 2
     var scene2_tween = new TimelineMax()
