@@ -64,7 +64,7 @@ function star_maker(array) {
         word_string = array[0];
         word_string = word_string.toLowerCase();
         starfield = $('.'+word_string);
-        console.log('starfield is', starfield);
+        
         for (var j = 0; j < word.length; j++) {
             var letter_string = word[j];
             var left_random = Math.random() * offset - half_offset;
@@ -124,11 +124,11 @@ function shooting_star(){
 $(document).ready(function() {
     //creates the static stars on star_layer1
     fake_star_maker(skills);
-    //creates the animated stars that will create the letters
+    //creates the animated stars that will create the letters for each set of arrays
     star_maker(title);
-    // star_maker(skills);
-    // star_maker(libraries);
-    // star_maker(productivity);
+    star_maker(skills);
+    star_maker(libraries);
+    star_maker(productivity);
     //Adds scaling and fade ins for header text and intro text
     var scene1_tween = new TimelineMax()
         .add(TweenMax.to('#starry_night', 2, {
