@@ -64,7 +64,7 @@ function star_maker(array) {
         word_string = array[0];
         word_string = word_string.toLowerCase();
         starfield = $('.'+word_string);
-        
+        var word_div = $('<div>');
         for (var j = 0; j < word.length; j++) {
             var letter_string = word[j];
             var left_random = Math.random() * offset - half_offset;
@@ -90,8 +90,9 @@ function star_maker(array) {
 
             star_array.push(this_star);
             span.append(star, letter);
-            starfield.append(span);
+            word_div.append(span);
         }
+    starfield.append(word_div);
     }
 }
 //This will make fake stars that will be appended to the static star layer
@@ -143,13 +144,13 @@ $(document).ready(function() {
     var scene1 = new ScrollScene({
             triggerElement: '#scene1',
             reverse: false,
-            offset: 450
+            offset: 400
         }).setTween(scene1_tween).addTo(controller).addIndicators();
 
     //pins the night_sky to screen
     var scene1_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 277,
+        offset: 240,
         //duration: 500
     }).setPin('#starry_night').addTo(controller);
 
@@ -170,20 +171,21 @@ $(document).ready(function() {
         }), '3');
     var scene2 = new ScrollScene({
         triggerElement: '#scene2',
-        offset: -250
+        offset: -300
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
     //Scene that calls the star_maker function
     var star_mover = new ScrollScene({
         triggerElement: '#scene2',
-        reverse: false
+        reverse: false,
+        offset: -150
     }).on('start', function(){
         shooting_star();
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 251,
+        offset: 550,
         //duration: 500
     }).setPin('.star_layer',{
         pushFollowers: true
