@@ -194,12 +194,15 @@ SCENE 3
 */
 
 .bubble {
-    background-color: red;
+    background-color: white;
     border-radius: 100% / 100%;
+    opacity: 1;
+     -webkit-filter: blur(7px) drop-shadow(4px 4px 20px white);
 }
 
 .dreams {
     position: absolute;
+    bottom: 70%;
     height: 45%;
     width: 60%;
 }
@@ -208,6 +211,7 @@ SCENE 3
     height: 77%;
     width: 90%;
     border-radius: 100% / 100%;
+   
 }
 
 .medium_dream {
@@ -216,8 +220,8 @@ SCENE 3
 }
 
 .small_dream {
-    height: 6%;
-    width: 2%;
+    height: 8%;
+    width: 3%;
 }
 
 .oval-thought-border {

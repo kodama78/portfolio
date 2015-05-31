@@ -174,16 +174,31 @@ $(document).ready(function() {
     var star_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -200
+        offset: -50
     }).on('start', function(){
         shooting_star();
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 625,
+        offset: 1025,
         duration: 1200
     }).setPin('.star_layer',{
         pushFollowers: true
     }).addTo(controller);
+
+    var scene3_tween = new TimelineMax()
+        .add(TweenMax.from('.small_dream', 1, {
+            opacity: 0,
+        }), '0.5')
+        .add(TweenMax.from('.medium_dream', 1, {
+            opacity: 0,
+        }), '0.25')
+        .add(TweenMax.from('.big_dream', 1, {
+            opacity: 0,
+        }),'0.25')
+    var scene3_scroll = new ScrollScene({
+        triggerElement: '#scene3',
+        offset: -250,
+    }).setTween(scene3_tween).addTo(controller).addIndicators();
 });
