@@ -3,11 +3,10 @@ var controller;
 controller = new ScrollMagic();
 
 //Global variables for star_maker function
-var asdf = null;
-var skills = ['HTML5', ' CSS3 ', ' JAVASCRIPT ', ' PHP'];
-var libraries = ['BOOTSTRAP', ' JQUERY'];
-var productivity = ['GIT'];
-var title = ['TECHNICAL', ' TOOLKIT'];
+var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
+var libraries = ['libraries','bootstrap', 'jquery'];
+var productivity = ['productivity','git'];
+var title = ['technical', 'toolkit'];
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -62,7 +61,6 @@ function star_maker(array) {
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
         word_string = array[0];
-        word_string = word_string.toLowerCase();
         starfield = $('.'+word_string);
         var word_div = $('<div>');
         for (var j = 0; j < word.length; j++) {
