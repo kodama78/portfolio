@@ -1,69 +1,84 @@
-body{
-	font-family: 'Amatic SC', cursive;
+body {
+    font-family: 'Amatic SC', cursive;
 }
-.nopadding{
-	padding: 0;
+
+.nopadding {
+    padding: 0;
 }
 /*
 ====================================
 HEADER
 ====================================
 */
-.main_header{
-	position: fixed;
-	background-image: url('assets/images/headerbackground.png');
-	color: white;
-	z-index: 1;
-	text-align: center;
-	opacity: 0.5;
+
+.main_header {
+    position: fixed;
+    background-image: url('assets/images/headerbackground.png');
+    color: white;
+    z-index: 1;
+    text-align: center;
+    opacity: 0.5;
 }
-.logo_container{
-	display: inline-block;
+
+.logo_container {
+    display: inline-block;
 }
-.logo{
-	color: white;
-	font-size: 30px;
+
+.logo {
+    color: white;
+    font-size: 30px;
 }
-#name{
-	font-size: 7em;
-	margin: 0;
+
+#name {
+    font-size: 2em;
+    margin: 2% 0 0 0;
+    transform: scale(1.6);
+    font-weight: 700;
 }
-.nav{
-	color: white;
-	text-decoration: none;
-	font-size: 25px;
+
+.nav {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
 }
-span{
-	text-transform: uppercase;
+
+span {
+    text-transform: uppercase;
 }
 /*
 ====================================
 SCENE 1
 ====================================
 */
-.arrow{
-	color:white;
+
+.arrow {
+    color: white;
 }
-#scene1{
-	position: relative;
-	overflow: hidden;
-	display: block;
+
+#scene1 {
+    position: relative;
+    overflow: hidden;
+    display: block;
 }
-.night_sky{
-	opacity: 0.6;
+
+.night_sky {
+    opacity: 0.6;
 }
-#starry_night{
-	transform: scale(2);
+
+#starry_night {
+    transform: scale(2);
 }
-.intro_text{
-	position: absolute;
-	top: 10%;
-	left: 10%;
-	color: white;
-	font-size: 20px;
+
+.intro_text {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: white;
+    font-size: 20px;
 }
-.intro_text > h3{
-	font-size: 60px;
+
+.intro_text > h3 {
+    font-size: 60px;
 }
 /*.star_layer{
 	color: white;
@@ -73,58 +88,65 @@ SCENE 1
 STAR FUNCTION STYLING
 ====================================
 */
-.technical>div>span>span{
-	text-decoration: underline;
-	color: white;
-	font-size: 100px;
-	font-weight: 600;
+
+.technical>div>span>span {
+    text-decoration: underline;
+    color: white;
+    font-size: 3em;
+    font-weight: 600;
 }
-.star_layer{
-	height: 100%;
-	width:100%;
-	position: absolute;
-	top: 50%;
-	text-align: center;
-	/*transform: translateX(-50%) translateY(-50%);*/
+
+.star_layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    /*transform: translateX(-50%) translateY(-50%);*/
 }
-.letter{
+
+.letter {
     opacity: 0;
     color: white;
     transform: scale(0);
     transition-duration: .25s;
     font-size: 40px;
 }
-.star_layer span{
-    position: relative; 
+
+.star_layer span {
+    position: relative;
 }
-.star{
+
+.star {
     position: absolute;
     left: 0px;
     top: 0px;
     color: white;
-    font-size: 110%;
+    font-size: 100%;
     opacity: .5;
     text-shadow: 5px 5px lightyellow;
 }
-.starshining{
-    -webkit-animation:startwinkle 1s ease-in ;
+
+.starshining {
+    -webkit-animation: startwinkle 1s ease-in;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
 }
+
 @-webkit-keyframes startwinkle {
-    0%{
-         opacity: .6;
-    }
-    40%{
+    0% {
         opacity: .6;
     }
-    50%{
+    40% {
+        opacity: .6;
+    }
+    50% {
         opacity: 1;
     }
-    60%{
+    60% {
         opacity: .6;
     }
-    100%{
+    100% {
         opacity: .6;
     }
 }
@@ -133,29 +155,34 @@ STAR FUNCTION STYLING
 SCENE 2
 ====================================
 */
-#scene2{
-	position: relative;
-	display: inline-block;
+
+#scene2 {
+    position: relative;
+    display: inline-block;
 }
-.forest{
-	opacity: 0.6;
-	z-index: 2;
+
+.forest {
+    opacity: 0.6;
+    z-index: 2;
 }
-.scene2_header{
-	position: absolute;
-	top: -15%;
-	left:20%;
-	color: white;
+
+.scene2_header {
+    position: absolute;
+    /*top: -15%;*/
+    color: white;
 }
-.skills{
-	position: absolute;
-	bottom: 5%;
-	left: 20%;
-	color: white;
-	opacity: 0;
+
+.skills {
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    color: white;
+    opacity: 0;
 }
-.skills p, i{
-	font-size: 30px;
-	display: inline-block;
-	margin-right: 5%;
+
+.skills p,
+i {
+    font-size: 30px;
+    display: inline-block;
+    margin-right: 5%;
 }

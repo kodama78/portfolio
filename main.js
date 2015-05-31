@@ -97,16 +97,18 @@ function star_maker(array) {
 function fake_star_maker(array) {
     for (var i = 0; i < array.length; i++) {
         var word = skills[i];
-        for (var j = 0; j < (word.length)*6; j++) {
+        for (var j = 0; j < (word.length)*5; j++) {
             var left_random = Math.random() * offset - half_offset;
             var top_random = Math.random() * offset - half_offset;
             var left_offset = Math.floor(left_random * adjusted_width);
             var top_offset = Math.floor(top_random * adjusted_height);
+            var random_scale = Math.random() * 1.3;
             var span = $('<span>');
             var twinkle_start = Math.random() * 5;
             var star = $('<i>').addClass('fa fa-star starshining star').css({
                 'left': left_offset + 'px',
                 'top': top_offset + 'px',
+                'transform': 'scale(' + random_scale +')',
                 '-webkit-animation-delay': twinkle_start + 's',
             });
             span.append(star);
@@ -148,7 +150,7 @@ $(document).ready(function() {
     //pins the night_sky to screen
     var scene1_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 240,
+        offset: 320,
         //duration: 500
     }).setPin('#starry_night').addTo(controller);
 
@@ -157,16 +159,12 @@ $(document).ready(function() {
         .add(TweenMax.to('.intro_text', 1, {
             opacity: 0
         }))
-        .add(TweenMax.from('.scene2_header', 0.5, {
-            opacity: 0
-        }))
-        .add(TweenMax.to('.scene2_header', 1.5, {
-            opacity: 0
-        }), '2')
-        .add(TweenMax.to('.skills', 1, {
-            opacity: 1,
-            bottom: '65%'
-        }), '3');
+        // .add(TweenMax.from('.scene2_header', 0.5, {
+        //     opacity: 0
+        // }))
+        // .add(TweenMax.to('.scene2_header', 1.5, {
+        //     opacity: 0
+        // }), '2')
     var scene2 = new ScrollScene({
         triggerElement: '#scene2',
         offset: -300
@@ -176,15 +174,15 @@ $(document).ready(function() {
     var star_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -150
+        offset: -100
     }).on('start', function(){
         shooting_star();
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 550,
-        //duration: 500
+        offset: 625,
+        duration: 1200
     }).setPin('.star_layer',{
         pushFollowers: true
     }).addTo(controller);
