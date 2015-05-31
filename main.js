@@ -174,7 +174,7 @@ $(document).ready(function() {
     var star_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -100
+        offset: -200
     }).on('start', function(){
         shooting_star();
     }).addTo(controller).addIndicators();
