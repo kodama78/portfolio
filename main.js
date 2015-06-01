@@ -14,6 +14,7 @@ var shadow_offset = null;
 var adjusted_width = null;
 var adjusted_height = null;
 var star_array = [];
+var title_stars = [];
 $(document).ready(function() {
 	starfield = $('.star_layer');
     offset = 2;
@@ -24,11 +25,12 @@ $(document).ready(function() {
 
 });
 //Skill function that will randomly place the letters into certain spots
-function star_object(span, star, letter, position_data){
+function star_object(span, star, letter, position_data, success_function){
     this.span = span;
     this.star = star;
     this.letter = letter;
     this.position_data = position_data;
+    this.success_function = success_function;
     this.go_home = function(){
         var _this = this.span;
         var _this_star = this.star;
@@ -58,6 +60,7 @@ function star_object(span, star, letter, position_data){
 }
 
 function star_maker(array) {
+    var star_array = []
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
         word_string = array[0];
@@ -92,6 +95,7 @@ function star_maker(array) {
         }
     starfield.append(word_div);
     }
+    return star_array;
 }
 //This will make fake stars that will be appended to the static star layer
 function fake_star_maker(array) {
@@ -117,7 +121,7 @@ function fake_star_maker(array) {
     }
 }
 //Calls the star_mover function to move the created stars
-function shooting_star(){
+function shooting_star(star_array){
     for(var i = 0; i < star_array.length; i++){
         star_array[i].go_home();
     }
@@ -126,19 +130,19 @@ $(document).ready(function() {
     //creates the static stars on star_layer1
     fake_star_maker(skills);
     //creates the animated stars that will create the letters for each set of arrays
-    star_maker(title);
-    star_maker(skills);
-    star_maker(libraries);
-    star_maker(productivity);
+    title_stars = star_maker(title);
+    skills_stars = star_maker(skills);
+    libraries_stars = star_maker(libraries);
+    productivity_stars = star_maker(productivity);
     //Adds scaling and fade ins for header text and intro text
     var scene1_tween = new TimelineMax()
         .add(TweenMax.to('#starry_night', 2, {
             transform: 'scale(1)'
         }))
-        // .add(TweenMax.from('#name', 1, {
-        // 	opacity: 0
-        // }), '2')
-        .add(TweenMax.from('.intro_text', 1, {
+        .add(TweenMax.to('.star_layer1', 2, {
+        	transform: 'scale(1)'
+        }), '0')
+        .add(TweenMax.from('.intro_text', 0.5, {
             opacity: 0,
         }), '0.5')
     var scene1 = new ScrollScene({
@@ -171,18 +175,42 @@ $(document).ready(function() {
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
     //Scene that calls the star_maker function
-    var star_mover = new ScrollScene({
+    var title_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -50
+        offset: -250
     }).on('start', function(){
-        shooting_star();
+        shooting_star(title_stars);
+    }).addTo(controller).addIndicators();
+    
+     var skills_mover = new ScrollScene({
+        triggerElement: '#scene2',
+        reverse: false,
+        offset: -190
+    }).on('start', function(){
+        shooting_star(skills_stars);
+    }).addTo(controller).addIndicators();
+
+    var libraries_mover = new ScrollScene({
+        triggerElement: '#scene2',
+        reverse: false,
+        offset: -170
+    }).on('start', function(){
+        shooting_star(libraries_stars);
+    }).addTo(controller).addIndicators();
+
+    var productivity_mover = new ScrollScene({
+        triggerElement: '#scene2',
+        reverse: false,
+        offset: -150
+    }).on('start', function(){
+        shooting_star(productivity_stars);
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
-        triggerElement: '#starry_night',
-        offset: 1025,
-        duration: 1200
+        triggerElement: '#scene2',
+        offset: -170,
+        duration: 800
     }).setPin('.star_layer',{
         pushFollowers: true
     }).addTo(controller);

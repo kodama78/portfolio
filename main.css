@@ -68,7 +68,9 @@ SCENE 1
 #starry_night {
     transform: scale(2);
 }
-
+.star_layer1{
+    transform: scale(2);
+}
 .intro_text {
     position: absolute;
     top: 10%;
