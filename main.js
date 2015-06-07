@@ -7,7 +7,7 @@ var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
 var libraries = ['libraries', 'bootstrap', 'jquery'];
 var productivity = ['productivity', 'git'];
 var title = ['technical', 'toolkit'];
-var projects = ['Calculator', 'Tic-Tac-Toe']
+var projects = ['calculator', 'tic-tac-toe']
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -56,7 +56,7 @@ function star_object(span, star, letter, position_data, success_function) {
                 top: '2px',
                 opacity: .5,
                 'font-size': '300%'
-            }, 1000, function() {
+            }, 800, function() {
                 _this_letter.animate({
                     opacity: 1
                 }, 150);
@@ -68,7 +68,7 @@ function star_object(span, star, letter, position_data, success_function) {
 function string_star_maker(array){
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
-        var word_div = $('<div>').addClass('projects_position');
+        var word_div = $('<div>').addClass('projects_position '+ array[i]);
         var left_random = Math.random() * offset - half_offset;
         var top_random = Math.random() * -offset;
         var left_offset = Math.floor(left_random * adjusted_width);
@@ -172,7 +172,7 @@ RIPPLE FUNCTIONS
 */
 //creates divs for ripples
 function ripple_maker() {
-    for (var i = 0; i < 1; i++) {
+    for (var i = 0; i < project_array.length; i++) {
         var tiny_c = $('<div>').addClass('tiny stone');
         var xs_c = $('<div>').addClass('xs stone');
         var small_c = $('<div>').addClass('small stone');
@@ -189,10 +189,7 @@ function ripple_maker() {
 
 //applies the classes to the divs in ripplemaker to create ripple effect
 function ripples() {
-    // $('.calculator').addClass('word_move');
-    // setTimeout(function() {
-    //     $('.calculator').addClass('word_stone');
-    // }, 1000);
+    $('.calculator').addClass('word_stone');
     setTimeout(function() {
         $('.tiny').addClass('tiny_stone');
     }, 1200);
@@ -317,16 +314,19 @@ $(document).ready(function() {
     */
     var project_mover = new ScrollScene({
         triggerElement: '#scene3',
-        offset: 50,
+        offset: -50,
     }).on('start', function(){
         shooting_star(project_array);
     }).addTo(controller).addIndicators();
     //ripples the words
     var ripple_start = new ScrollScene({
         triggerElement: '#scene3',
-        offset: 50,
+        offset: -50,
     }).on('start', function() {
-        ripples();
+        setTimeout(function(){
+            ripples();
+        }, 800);
+        
     }).addTo(controller).addIndicators();
     // var scene3_tween = new TimelineMax()
     //     .add(TweenMax.from('.small_dream', 1, {

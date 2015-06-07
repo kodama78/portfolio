@@ -113,7 +113,7 @@ STAR FUNCTION STYLING
     opacity: 0;
     color: white;
     transform: scale(0);
-    transition-duration: .25s;
+    transition-duration: .15s;
     font-size: 40px;
 }
 
@@ -248,22 +248,20 @@ WORD RIPPLES
     height: 200px;
     z-index: 2;
     width: 200px;
-    background-color: blue;
+    background-color: white;
     transform: scale(1);
 }
 .calculator{
-    border-radius: 100%/100%;
     position: absolute;
-    top: 30%;
-    left: 33%;
+    top: 8%;
+    left: 10%;
     color: black;
     transform: scaleX(0.2);
-    transform: translateY(50px);
     transition-duration: 1s;
      -webkit-filter: blur(10px) drop-shadow(1px 1px 20px blue);
 }
 .word_move{
-    transform:translateY(0px);
+    /*transform:translateY(0px);*/
 }
 .word_stone{
     color: white;
