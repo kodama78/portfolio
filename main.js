@@ -126,6 +126,42 @@ function shooting_star(star_array){
         star_array[i].go_home();
     }
 }
+for (var i = 0; i < 1; i++){
+    var tiny_c = $('<div>').addClass('tiny stone');
+    var xs_c = $('<div>').addClass('xs stone');
+   var small_c = $('<div>').addClass('small stone');
+    //var medium_c = $('<div>').addClass('medium');
+    //var large_c = $('<div>').addClass('large');
+    
+    //xs_c.append(tiny_c);
+    //small_c.append(xs_c);
+    //medium_c.append(small_c);
+    //large_c.append(medium_c);
+    $('#scene3').append(tiny_c, xs_c, small_c);
+}
+
+function ripples(){
+    $('.calculator').addClass('word_move');
+    setTimeout(function(){
+        $('.calculator').addClass('word_stone');
+    }, 1000);
+    
+    setTimeout(function(){
+        $('.tiny').addClass('tiny_stone');
+    }, 1200);
+    
+    setTimeout(function(){
+      $('.xs').addClass('xs_stone');  
+    }, 1270);
+    
+    setTimeout(function(){
+      $('.small').addClass('small_stone');  
+    }, 2000);
+     setTimeout(function(){
+      $('.small').addClass('small_stone_gone');  
+    }, 3000);
+    
+}
 $(document).ready(function() {
     //creates the static stars on star_layer1
     fake_star_maker(skills);
@@ -215,18 +251,18 @@ $(document).ready(function() {
         pushFollowers: true
     }).addTo(controller);
 
-    var scene3_tween = new TimelineMax()
-        .add(TweenMax.from('.small_dream', 1, {
-            opacity: 0,
-        }), '0.5')
-        .add(TweenMax.from('.medium_dream', 1, {
-            opacity: 0,
-        }), '0.25')
-        .add(TweenMax.from('.big_dream', 1, {
-            opacity: 0,
-        }),'0.25')
-    var scene3_scroll = new ScrollScene({
-        triggerElement: '#scene3',
-        offset: -250,
-    }).setTween(scene3_tween).addTo(controller).addIndicators();
+    // var scene3_tween = new TimelineMax()
+    //     .add(TweenMax.from('.small_dream', 1, {
+    //         opacity: 0,
+    //     }), '0.5')
+    //     .add(TweenMax.from('.medium_dream', 1, {
+    //         opacity: 0,
+    //     }), '0.25')
+    //     .add(TweenMax.from('.big_dream', 1, {
+    //         opacity: 0,
+    //     }),'0.25')
+    // var scene3_scroll = new ScrollScene({
+    //     triggerElement: '#scene3',
+    //     offset: -250,
+    // }).setTween(scene3_tween).addTo(controller).addIndicators();
 });
