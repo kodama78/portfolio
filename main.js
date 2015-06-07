@@ -7,7 +7,7 @@ var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
 var libraries = ['libraries', 'bootstrap', 'jquery'];
 var productivity = ['productivity', 'git'];
 var title = ['technical', 'toolkit'];
-var projects = ['calculator', 'tic-tac-toe']
+var projects = ['calculator']
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -172,10 +172,10 @@ RIPPLE FUNCTIONS
 */
 //creates divs for ripples
 function ripple_maker() {
-    for (var i = 0; i < project_array.length; i++) {
-        var tiny_c = $('<div>').addClass('tiny stone');
-        var xs_c = $('<div>').addClass('xs stone');
-        var small_c = $('<div>').addClass('small stone');
+    for (var i = 0; i < projects.length; i++) {
+        var tiny_c = $('<div>').addClass('tiny stone '+ projects[i]);
+        var xs_c = $('<div>').addClass('xs stone '+ projects[i]);
+        var small_c = $('<div>').addClass('small stone '+ projects[i]);
         //var medium_c = $('<div>').addClass('medium');
         //var large_c = $('<div>').addClass('large');
 
@@ -183,14 +183,14 @@ function ripple_maker() {
         //small_c.append(xs_c);
         //medium_c.append(small_c);
         //large_c.append(medium_c);
-        $('#scene3').append(tiny_c, xs_c, small_c);
+        $('.'+ projects[i]).append(tiny_c, xs_c, small_c);
     }
 }
 
 //applies the classes to the divs in ripplemaker to create ripple effect
 function ripples() {
-    $('.calculator').addClass('word_stone');
     setTimeout(function() {
+        $('.calculator').addClass('word_stone');
         $('.tiny').addClass('tiny_stone');
     }, 1200);
 
@@ -325,7 +325,7 @@ $(document).ready(function() {
     }).on('start', function() {
         setTimeout(function(){
             ripples();
-        }, 800);
+        }, 1200);
         
     }).addTo(controller).addIndicators();
     // var scene3_tween = new TimelineMax()

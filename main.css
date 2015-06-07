@@ -253,20 +253,15 @@ WORD RIPPLES
 }
 .calculator{
     position: absolute;
+    opacity: 1;
     top: 8%;
     left: 10%;
-    color: black;
-    transform: scaleX(0.2);
-    transition-duration: 1s;
-     -webkit-filter: blur(10px) drop-shadow(1px 1px 20px blue);
-}
-.word_move{
-    /*transform:translateY(0px);*/
+    transition-duration: 1.5s;
+     -webkit-filter: blur(1px) drop-shadow(1px 1px 20px blue);
 }
 .word_stone{
     color: white;
     #font-weight: 700;
-    transform: scaleX(1);
     z-index: 3;
     -webkit-filter: blur(0px) drop-shadow(1px 1px 20px blue);
     opacity: 1;
