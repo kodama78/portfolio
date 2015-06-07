@@ -54,8 +54,9 @@ function star_object(span, star, letter, position_data, success_function) {
             _this_star.animate({
                 left: '2px',
                 top: '2px',
-                opacity: .5,
-                'font-size': '300%'
+                opacity: 1,
+                'font-size': '200%',
+                'margin-left':'30%'
             }, 800, function() {
                 _this_letter.animate({
                     opacity: 1
@@ -65,10 +66,14 @@ function star_object(span, star, letter, position_data, success_function) {
         }, _this_showtime);
     }
 }
-function string_star_maker(array){
+function project_star_maker(array){
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
-        var word_div = $('<div>').addClass('projects_position '+ array[i]);
+        var word_div = $('<div>').addClass('projects_position '+ array[i]).css({
+            'height':'150px',
+            'width':'200px',
+            'text-align':'center'  
+        });
         var left_random = Math.random() * offset - half_offset;
         var top_random = Math.random() * -offset;
         var left_offset = Math.floor(left_random * adjusted_width);
@@ -189,8 +194,8 @@ function ripple_maker() {
 
 //applies the classes to the divs in ripplemaker to create ripple effect
 function ripples() {
+    $('.calculator').addClass('word_stone');
     setTimeout(function() {
-        $('.calculator').addClass('word_stone');
         $('.tiny').addClass('tiny_stone');
     }, 1200);
 
@@ -208,7 +213,7 @@ function ripples() {
 }
 
 $(document).ready(function() {
-    string_star_maker(projects);
+    project_star_maker(projects);
     ripple_maker(); 
     //creates the static stars on star_layer1
     fake_star_maker(skills);
