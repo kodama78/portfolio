@@ -44,14 +44,15 @@ function star_object(span, star, letter, position_data, success_function) {
         var _this_star = this.star;
         var _this_letter = this.letter;
         var _this_showtime = Math.random() * 2500 + 500;
-        var _this_left_shadow = this.position_data.left_random.toFixed(2) * shadow_offset;
-        var _this_top_shadow = this.position_data.top_random.toFixed(2) * shadow_offset;
+        // var _this_left_shadow = this.position_data.left_random.toFixed(2) * shadow_offset;
+        // var _this_top_shadow = this.position_data.top_random.toFixed(2) * shadow_offset;
         _this = this;
         setTimeout(function() {
-            _this_star.removeClass('starshining').css({
-                'text-shadow': _this_left_shadow + 'px ' + _this_top_shadow + 'px white',
-                '-webkit-filter': 'blur(' + _this_top_shadow + 'px)'
-            });
+            _this_star.removeClass('starshining');
+            // .css({
+            //     'text-shadow': _this_left_shadow + 'px ' + _this_top_shadow + 'px white',
+            //     '-webkit-filter': 'blur(' + _this_top_shadow + 'px)'
+            // });
             _this_star.animate({
                 left: '2px',
                 top: '2px',
@@ -334,7 +335,7 @@ $(document).ready(function() {
     }).on('start', function() {
         setTimeout(function(){
             ripples();
-        }, 1200);
+        }, 500);
         
     }).addTo(controller).addIndicators();
     // var scene3_tween = new TimelineMax()
