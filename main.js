@@ -71,11 +71,11 @@ function project_star_maker(array){
 
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
-        var word_div = $('<div>').addClass('projects_position '+ array[i]).css({
+        var word_div = $('<div>').addClass('projects_position col-sm-3 '+ array[i]).css({
             'height':'150px',
-            'width':'200px',
             'text-align':'center',
-            'cursor': 'pointer'  
+            'cursor': 'pointer',
+            'z-index': 3,
         }).click(function(){
             console.log('Hello There!');
         });
@@ -103,7 +103,7 @@ function project_star_maker(array){
         project_array.push(this_star);
         span.append(star, letter);
         word_div.append(span);
-        $('#scene3').append(word_div);
+        $('.project_div').append(word_div);
     }
 }
 //creates the stars by running through array and then string
@@ -187,13 +187,6 @@ function ripple_maker() {
         var tiny_c = $('<div>').addClass('tiny stone');
         var xs_c = $('<div>').addClass('xs stone');
         var small_c = $('<div>').addClass('small stone');
-        //var medium_c = $('<div>').addClass('medium');
-        //var large_c = $('<div>').addClass('large');
-
-        //xs_c.append(tiny_c);
-        //small_c.append(xs_c);
-        //medium_c.append(small_c);
-        //large_c.append(medium_c);
         $('.'+ projects[i]).append(tiny_c, xs_c, small_c);
     }
 }
@@ -205,7 +198,7 @@ function ripples() {
     }, 500);
     setTimeout(function() {
         $('.tiny').addClass('tiny_stone');
-    }, 1200);
+    }, 1000);
 
     setTimeout(function() {
         $('.xs').addClass('xs_stone');
@@ -213,10 +206,13 @@ function ripples() {
 
     setTimeout(function() {
         $('.small').addClass('small_stone');
-    }, 2000);
+    }, 1800);
     setTimeout(function() {
         $('.small').addClass('small_stone_gone');
     }, 3000);
+    setTimeout(function(){
+        $('.small_stone_gone').hide();
+    },5500);
 
 }
 
@@ -327,6 +323,7 @@ $(document).ready(function() {
     var project_mover = new ScrollScene({
         triggerElement: '#scene3',
         offset: -50,
+        reverse: false,
     }).on('start', function(){
         shooting_star(project_array);
     }).addTo(controller).addIndicators();

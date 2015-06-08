@@ -166,7 +166,7 @@ SCENE 2
 
 .forest {
     opacity: 0.6;
-    z-index: 2;
+    z-index: 4;
 }
 
 .scene2_header {
@@ -195,7 +195,10 @@ i {
 SCENE 3
 ====================================
 */
-
+.lakefire{
+    opacity: 0.5;
+    z-index: 2;
+}
 .bubble {
     background-color: white;
     border-radius: 100% / 100%;
@@ -221,10 +224,9 @@ SCENE 3
     background-color: rgb(181, 102, 199);
     font-size: 50px;
 }
-.projects_position{
+.project_div{
     position: absolute;
-    display: inline-block;
-
+    top: 8%;
 }
 /*.medium_dream {
     height: 10%;
@@ -269,24 +271,12 @@ WORD RIPPLES
     top: -20%;
 }
 .calculator{
-    position: absolute;
-    top: 8%;
-    left: 5%;
 }
 .tic-tac-toe{
-    position: absolute;
-    top: 8%;
-    left: 25%;
 }
 .todo{
-    position: absolute;
-    top: 8%;
-    left: 45%;
 }
 .journal{
-    position: absolute;
-    top: 8%;
-    left: 65%;
 }
 .tiny{
     transform: scale(0);
