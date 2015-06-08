@@ -113,7 +113,7 @@ STAR FUNCTION STYLING
     opacity: 0;
     color: white;
     transform: scale(0);
-    transition-duration: .75s;
+    transition-duration: .25s;
     font-size: 40px;
 }
 
@@ -127,7 +127,7 @@ STAR FUNCTION STYLING
     top: 0px;
     color: white;
     font-size: 100%;
-    opacity: .5;
+    opacity: 1;
     text-shadow: 5px 5px lightyellow;
 }
 
@@ -223,8 +223,6 @@ SCENE 3
 }
 .projects_position{
     position: absolute;
-    top: 8%;
-    left: 5%;
     display: inline-block;
 
 }
@@ -242,6 +240,22 @@ SCENE 3
 WORD RIPPLES
 ====================================
 */
+
+.project_word{
+    opacity: 0;
+    color: white;
+    transform: scale(0);
+    transition-duration: 4.5s;
+    font-size: 40px;
+     -webkit-filter: blur(10px) drop-shadow(1px 1px 20px blue);
+}
+.word_stone{
+    color: white;
+    font-weight: 700;
+    z-index: 2;
+    -webkit-filter: blur(0px) drop-shadow(1px 1px 20px blue);
+    opacity: 1;
+}
 .stone{
     border-radius: 100% / 100%;
     position: absolute;
@@ -256,17 +270,13 @@ WORD RIPPLES
 }
 .calculator{
     position: absolute;
-    opacity: 0;
-    transition-duration: 1.5s;
-     -webkit-filter: blur(1px) drop-shadow(1px 1px 20px blue);
+    top: 8%;
+    left: 5%;
+    /*opacity: 0;
+    transition-duration: 3s;
+     -webkit-filter: blur(1px) drop-shadow(1px 1px 20px blue);*/
 }
-.word_stone{
-    color: white;
-    #font-weight: 700;
-    z-index: 3;
-    -webkit-filter: blur(0px) drop-shadow(1px 1px 20px blue);
-    opacity: 1;
-}
+
 .tiny{
     transform: scale(0);
     transition-duration: 2s;

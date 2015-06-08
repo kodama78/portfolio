@@ -17,6 +17,7 @@ var adjusted_height = null;
 var star_array = [];
 var title_stars = [];
 var project_array = [];
+
 $(document).ready(function() {
     starfield = $('.star_layer');
     offset = 2;
@@ -57,7 +58,7 @@ function star_object(span, star, letter, position_data, success_function) {
                 opacity: 1,
                 'font-size': '200%',
                 'margin-left':'30%'
-            }, 800, function() {
+            }, 400, function() {
                 _this_letter.animate({
                     opacity: 1
                 }, 150);
@@ -67,6 +68,7 @@ function star_object(span, star, letter, position_data, success_function) {
     }
 }
 function project_star_maker(array){
+
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
         var word_div = $('<div>').addClass('projects_position '+ array[i]).css({
@@ -74,24 +76,25 @@ function project_star_maker(array){
             'width':'200px',
             'text-align':'center'  
         });
-        var left_random = Math.random() * offset - half_offset;
-        var top_random = Math.random() * -offset;
+        var left_random = Math.random() * (offset/2);
+        var top_random = Math.random() * -(offset/2);
         var left_offset = Math.floor(left_random * adjusted_width);
-        var top_offset = Math.floor(top_random * adjusted_height);
+        var top_offset = Math.floor((top_random * adjusted_height)/2);
         var position_data = {
             left_random: left_random,
             top_random: top_random,
         }
         var span = $('<span>');
-        var twinkle_start = Math.random() * 5;
-        var star = $('<i>').addClass('fa fa-star starshining star').css({
+        //var twinkle_start = Math.random() * 5;
+        var star = $('<i>').addClass('fa fa-star star').css({
             'left': left_offset + 'px',
             'top': top_offset + 'px',
-            '-webkit-animation-delay': twinkle_start + 's',
+            // '-webkit-animation-delay': twinkle_start + 's',
         });
+
         var letter = $('<span>', {
             text: word,
-            class: 'letter'
+            class: 'project_word'
         });
         var this_star = new star_object(span, star, letter, position_data);
         project_array.push(this_star);
@@ -178,9 +181,9 @@ RIPPLE FUNCTIONS
 //creates divs for ripples
 function ripple_maker() {
     for (var i = 0; i < projects.length; i++) {
-        var tiny_c = $('<div>').addClass('tiny stone '+ projects[i]);
-        var xs_c = $('<div>').addClass('xs stone '+ projects[i]);
-        var small_c = $('<div>').addClass('small stone '+ projects[i]);
+        var tiny_c = $('<div>').addClass('tiny stone');
+        var xs_c = $('<div>').addClass('xs stone');
+        var small_c = $('<div>').addClass('small stone');
         //var medium_c = $('<div>').addClass('medium');
         //var large_c = $('<div>').addClass('large');
 
@@ -194,7 +197,9 @@ function ripple_maker() {
 
 //applies the classes to the divs in ripplemaker to create ripple effect
 function ripples() {
-    $('.calculator').addClass('word_stone');
+    setTimeout(function(){
+        $('.project_word').addClass('word_stone');
+    }, 500);
     setTimeout(function() {
         $('.tiny').addClass('tiny_stone');
     }, 1200);
@@ -217,7 +222,6 @@ $(document).ready(function() {
     ripple_maker(); 
     //creates the static stars on star_layer1
     fake_star_maker(skills);
-
     //creates the animated stars that will create the letters for each set of arrays
     title_stars = star_maker(title);
     skills_stars = star_maker(skills);
