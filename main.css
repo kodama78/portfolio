@@ -272,11 +272,22 @@ WORD RIPPLES
     position: absolute;
     top: 8%;
     left: 5%;
-    /*opacity: 0;
-    transition-duration: 3s;
-     -webkit-filter: blur(1px) drop-shadow(1px 1px 20px blue);*/
 }
-
+.tic-tac-toe{
+    position: absolute;
+    top: 8%;
+    left: 25%;
+}
+.todo{
+    position: absolute;
+    top: 8%;
+    left: 45%;
+}
+.journal{
+    position: absolute;
+    top: 8%;
+    left: 65%;
+}
 .tiny{
     transform: scale(0);
     transition-duration: 2s;
