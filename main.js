@@ -75,9 +75,7 @@ function project_star_maker(array){
             'height':'150px',
             'text-align':'center',
             'cursor': 'pointer',
-            'z-index': 3,
-        }).click(function(){
-            console.log('Hello There!');
+            'z-index': 2,
         });
         var left_random = Math.random() * (offset/2);
         var top_random = Math.random() * -(offset/2);
@@ -184,7 +182,9 @@ RIPPLE FUNCTIONS
 //creates divs for ripples
 function ripple_maker() {
     for (var i = 0; i < projects.length; i++) {
-        var tiny_c = $('<div>').addClass('tiny stone');
+        var tiny_c = $('<div>').addClass('tiny stone').css('z-index', '6').click(function(){
+            console.log('Hello There!');
+        });
         var xs_c = $('<div>').addClass('xs stone');
         var small_c = $('<div>').addClass('small stone');
         $('.'+ projects[i]).append(tiny_c, xs_c, small_c);
@@ -212,7 +212,7 @@ function ripples() {
     }, 3000);
     setTimeout(function(){
         $('.small_stone_gone').hide();
-    },5500);
+    },6000);
 
 }
 
