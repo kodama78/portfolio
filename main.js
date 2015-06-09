@@ -86,7 +86,16 @@ MODAL FUNCTION FOR PROJECTS_STAR_MAKER
 function get_projects_modal_info_from_server(projects, project_name){
     for(var i = 0; i < projects.length; i++){
         if(projects[i] == project_name){
-            console.log('Clicked ', projects[i]);
+            page = 'assets/pages/modal.php?content='+projects[i];
+            console.log('page is', page);
+            $.ajax({
+                dataType: 'html',
+                method: 'GET',
+                url: page,
+                success: function(response){
+                    $('#dreamModal').append(response);
+                }
+            });
         }
     }
 }
@@ -102,9 +111,8 @@ function project_star_maker(array){
             'z-index': 2,
         }).click(function(){
             var project_name = $(this).text();
-            console.log(project_name);
             get_projects_modal_info_from_server(projects, project_name);
-            // $('#dreamModal').modal('show');
+            $('#dreamModal').modal('show');
         });
         var left_random = Math.random() * (offset/2);
         var top_random = Math.random() * -(offset/2);
