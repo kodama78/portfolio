@@ -96,10 +96,6 @@ function get_projects_modal_info_from_server(projects, project_name){
                     console.log(response);
                     $('#dreamModal').html('');
                     $('#dreamModal').append(response);
-                    setTimeout(function(){
-                         $('.modal-title').text('');
-                     }, 1000);
-                   
                 }
             });
         }
@@ -292,7 +288,7 @@ $(document).ready(function() {
     var scene1 = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
-        offset: 400
+        offset: 420
     }).setTween(scene1_tween).addTo(controller).addIndicators();
 
     //pins the night_sky to screen
@@ -326,7 +322,7 @@ $(document).ready(function() {
     var title_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -250
+        offset: -150
     }).on('start', function() {
         shooting_star(title_stars);
     }).addTo(controller).addIndicators();
@@ -334,7 +330,7 @@ $(document).ready(function() {
     var skills_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -190
+        offset: -90
     }).on('start', function() {
         shooting_star(skills_stars);
     }).addTo(controller).addIndicators();
@@ -342,7 +338,7 @@ $(document).ready(function() {
     var libraries_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -170
+        offset: -70
     }).on('start', function() {
         shooting_star(libraries_stars);
     }).addTo(controller).addIndicators();
@@ -350,15 +346,15 @@ $(document).ready(function() {
     var productivity_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -150
+        offset: -50
     }).on('start', function() {
         shooting_star(productivity_stars);
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
         triggerElement: '#scene2',
-        offset: -170,
-        duration: 800
+        offset: -70,
+        duration: 1000
     }).setPin('.star_layer', {
         pushFollowers: true
     }).addTo(controller);
