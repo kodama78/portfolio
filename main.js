@@ -86,14 +86,20 @@ MODAL FUNCTION FOR PROJECTS_STAR_MAKER
 function get_projects_modal_info_from_server(projects, project_name){
     for(var i = 0; i < projects.length; i++){
         if(projects[i] == project_name){
+
             page = 'assets/pages/modal.php?content='+projects[i];
-            console.log('page is', page);
             $.ajax({
                 dataType: 'html',
                 method: 'GET',
                 url: page,
                 success: function(response){
+                    console.log(response);
+                    $('#dreamModal').html('');
                     $('#dreamModal').append(response);
+                    setTimeout(function(){
+                         $('.modal-title').text('');
+                     }, 1000);
+                   
                 }
             });
         }
