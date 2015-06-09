@@ -84,15 +84,11 @@ SCENE 1
 .intro_text > h3 {
     font-size: 60px;
 }
-/*.star_layer{
-    color: white;
-}*/
 /*
 ====================================
 STAR FUNCTION STYLING
 ====================================
 */
-
 .technical>div>span>span {
     text-decoration: underline;
     color: white;
@@ -237,6 +233,20 @@ SCENE 3
     height: 8%;
     width: 3%;
 }*/
+/*
+====================================
+MODAL STYLING
+====================================
+*/
+.modal-body{
+    border: 5px solid red;
+}
+.iframe{
+    width: 100%;
+    height: 600px;
+    background-color: blue;
+    border-radius: 10px;
+}
 /*
 ====================================
 WORD RIPPLES
