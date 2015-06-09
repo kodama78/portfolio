@@ -14,10 +14,14 @@ var half_offset = null;
 var shadow_offset = null;
 var adjusted_width = null;
 var adjusted_height = null;
-var star_array = [];
-var title_stars = [];
-var project_array = [];
+var title_stars = []; //used in the star_maker function in the document ready to hold the stars created by the same named array above
+var skills_stars = [];//used in the star_maker function in the document ready to hold the stars created by the same named array above
+var libraries_stars = [];//used in the star_maker function in the document ready to hold the stars created by the same named array above
+var productivity_stars = [];//used in the star_maker function in the document ready to hold the stars created by the same named array above
+var project_array = [];//used in the star_maker function in the document ready to hold the stars created by the same named array above
 
+//This document ready is used to make sure that the star_maker 
+//functions will not error out
 $(document).ready(function() {
     starfield = $('.star_layer');
     offset = 2;
@@ -32,7 +36,10 @@ $(document).ready(function() {
 STARMAKER FUNCTIONS
 ===================================================
 */
-//Skill function that will randomly place the letters into certain spots
+/*Skill function that will place the stars according to their random information given to it
+by the star_maker function. Attaches a closure that will cause the stars to shoot back to
+their original spots after a timeout which is set by showtime so that they shoot back at
+different times*/
 function star_object(span, star, letter, position_data, success_function) {
     this.span = span;
     this.star = star;
@@ -68,8 +75,24 @@ function star_object(span, star, letter, position_data, success_function) {
         }, _this_showtime);
     }
 }
+/*
+===================================================
+MODAL FUNCTION FOR PROJECTS_STAR_MAKER
+===================================================
+*/
+//This function will create a modal based on the id and strings in the projects array.
+//Function will also remove the previous modal and append it to scene 3 each time. The
+//ID of the modal will be determined 
+function get_projects_modal_info_from_server(projects, project_name){
+    for(var i = 0; i < projects.length; i++){
+        if(projects[i] == project_name){
+            console.log('Clicked ', projects[i]);
+        }
+    }
+}
+/* This does the same as the starmaker function but removes the second for loop and only
+creates stars for the words. Done to lower load on CPU and GPU*/
 function project_star_maker(array){
-
     for (var i = 0; i < array.length; i++) {
         var word = array[i];
         var word_div = $('<div>').addClass('projects_position col-sm-3 '+ array[i]).css({
@@ -77,6 +100,11 @@ function project_star_maker(array){
             'text-align':'center',
             'cursor': 'pointer',
             'z-index': 2,
+        }).click(function(){
+            var project_name = $(this).text();
+            console.log(project_name);
+            get_projects_modal_info_from_server(projects, project_name);
+            // $('#dreamModal').modal('show');
         });
         var left_random = Math.random() * (offset/2);
         var top_random = Math.random() * -(offset/2);
@@ -105,7 +133,11 @@ function project_star_maker(array){
         $('.project_div').append(word_div);
     }
 }
-//creates the stars by running through array and then string
+//creates the stars by running through the words in the array and then
+//running through the letters of each string. It then creates the letter and a star for
+//each one and then randomly places the star on the DOM according to the star_object function to create 
+//The star_object gives it an animate that will pull it back to its original position from
+//its random position. It will then save it to an array and return the array.
 function star_maker(array) {
         var star_array = []
         for (var i = 0; i < array.length; i++) {
@@ -144,7 +176,6 @@ function star_maker(array) {
         }
         return star_array;
     }
-//
 //This will make fake stars that will be appended to the static star layer
 function fake_star_maker(array) {
         for (var i = 0; i < array.length; i++) {
@@ -174,7 +205,6 @@ function shooting_star(star_array) {
         star_array[i].go_home();
     }
 }
-
 /*
 ===================================================
 RIPPLE FUNCTIONS
@@ -183,9 +213,7 @@ RIPPLE FUNCTIONS
 //creates divs for ripples
 function ripple_maker() {
     for (var i = 0; i < projects.length; i++) {
-        var tiny_c = $('<div>').addClass('tiny stone').css('z-index', '6').click(function(){
-            console.log('Hello There!');
-        });
+        var tiny_c = $('<div>').addClass('tiny stone');
         var xs_c = $('<div>').addClass('xs stone');
         var small_c = $('<div>').addClass('small stone');
         $('.'+ projects[i]).append(tiny_c, xs_c, small_c);
@@ -216,7 +244,11 @@ function ripples() {
     },6000);
 
 }
-
+/*
+===================================================
+DOCUMENT READY
+===================================================
+*/
 $(document).ready(function() {
     project_star_maker(projects);
     ripple_maker(); 
