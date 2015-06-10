@@ -1,6 +1,8 @@
 //global variables for parallax plugin Scrollmagic
 var controller;
-controller = new ScrollMagic();
+controller = new ScrollMagic({
+    globalSceneOptions: {triggerHook: .25} 
+});
 
 //Global variables for star_maker function
 var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
@@ -287,16 +289,17 @@ $(document).ready(function() {
         }), '0.5')
     var scene1 = new ScrollScene({
         triggerElement: '#scene1',
-        reverse: false,
-        offset: 420
+        reverse: true,
+        offset: 250
     }).setTween(scene1_tween).addTo(controller).addIndicators();
 
-    //pins the night_sky to screen
+    //pins the night_sky to screen. This will determine where the first scene is in relation
+    //to the header. REMEMBER THIS!
     var scene1_pin = new ScrollScene({
         triggerElement: '#starry_night',
-        offset: 320,
+        offset: 80,
         //duration: 500
-    }).setPin('#starry_night').addTo(controller);
+    }).setPin('#starry_night').addTo(controller).addIndicators();
 
     /*
     ========================================================
@@ -315,14 +318,14 @@ $(document).ready(function() {
         // }), '2')
     var scene2 = new ScrollScene({
         triggerElement: '#scene2',
-        offset: -300
+        offset: -400
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
     //Scene that calls the star_maker function
     var title_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -150
+        offset: -250
     }).on('start', function() {
         shooting_star(title_stars);
     }).addTo(controller).addIndicators();
@@ -330,7 +333,7 @@ $(document).ready(function() {
     var skills_mover = new ScrollScene({
         triggerElement: '#scene2',
         reverse: false,
-        offset: -90
+        offset: -150
     }).on('start', function() {
         shooting_star(skills_stars);
     }).addTo(controller).addIndicators();
@@ -353,7 +356,7 @@ $(document).ready(function() {
     //pins the star layer to #starry_night
     var star_layer_pin = new ScrollScene({
         triggerElement: '#scene2',
-        offset: -70,
+        offset: -100,
         duration: 1000
     }).setPin('.star_layer', {
         pushFollowers: true
