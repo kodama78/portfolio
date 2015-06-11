@@ -279,26 +279,23 @@ $(document).ready(function() {
     //Adds scaling and fade ins for header text and intro text
     var scene1_tween = new TimelineMax()
         .add(TweenMax.to('#starry_night', 2, {
-            transform: 'scale(1)'
+            transform: 'scale(1.0)'
         }))
         .add(TweenMax.to('.star_layer1', 2, {
-            transform: 'scale(1)'
+            transform: 'scale(1.0)'
         }), '0')
         .add(TweenMax.from('.intro_text', 0.5, {
             opacity: 0,
         }), '0.5')
     var scene1 = new ScrollScene({
-        triggerElement: '#scene1',
-        reverse: true,
-        offset: 250
+        triggerElement: '#scene1_text_fade_in_offset',
+        reverse: false,
     }).setTween(scene1_tween).addTo(controller).addIndicators();
 
     //pins the night_sky to screen. This will determine where the first scene is in relation
     //to the header. REMEMBER THIS!
     var scene1_pin = new ScrollScene({
-        triggerElement: '#starry_night',
-        offset: 80,
-        //duration: 500
+        triggerElement: '#scene1_pin_offset',
     }).setPin('#starry_night').addTo(controller).addIndicators();
 
     /*
@@ -317,15 +314,13 @@ $(document).ready(function() {
         //     opacity: 0
         // }), '2')
     var scene2 = new ScrollScene({
-        triggerElement: '#scene2',
-        offset: -400
+        triggerElement: '#scene1_text_fade_out_offset',
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
     //Scene that calls the star_maker function
     var title_mover = new ScrollScene({
-        triggerElement: '#scene2',
+        triggerElement: '#scene1_title_star_func_call',
         reverse: false,
-        offset: -250
     }).on('start', function() {
         shooting_star(title_stars);
     }).addTo(controller).addIndicators();
@@ -360,7 +355,7 @@ $(document).ready(function() {
         duration: 1000
     }).setPin('.star_layer', {
         pushFollowers: true
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
     /*
     ========================================================
     SCENE 3

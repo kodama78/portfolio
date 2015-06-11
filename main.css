@@ -5,6 +5,96 @@ body {
 .nopadding {
     padding: 0;
 }
+
+/*
+====================================
+STAR FUNCTION STYLING
+====================================
+*/
+.technical>div>span>span {
+    text-decoration: underline;
+    color: white;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.star_layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    /*transform: translateX(-50%) translateY(-50%);*/
+}
+
+.letter {
+    opacity: 0;
+    color: white;
+    transform: scale(0);
+    transition-duration: .25s;
+    font-size: 40px;
+}
+
+.star_layer span {
+    position: relative;
+}
+
+.star {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    color: white;
+    font-size: 100%;
+    opacity: 1;
+    /*text-shadow: 5px 5px lightyellow;*/
+    -webkit-filter: blur(5px) drop-shadow(4px 4px 20px white);
+}
+
+.starshining {
+    -webkit-animation: startwinkle 1s ease-in;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes startwinkle {
+    0% {
+        opacity: .6;
+    }
+    40% {
+        opacity: .6;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: .6;
+    }
+    100% {
+        opacity: .6;
+    }
+}
+/*
+====================================
+OFFSETS
+====================================
+*/
+.div_offsets{
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+#scene1_text_fade_in_offset{
+    top: 25%;
+}
+#scene1_pin_offset{
+    top: 30%;
+}
+#scene1_text_fade_out_offset{
+    top: 40%;
+}
+#scene1_title_star_func_call{
+    top: 50%;
+}
 /*
 ====================================
 HEADER
@@ -87,74 +177,6 @@ SCENE 1
 }
 .intro_text > p{
     font-size: 30px;
-}
-/*
-====================================
-STAR FUNCTION STYLING
-====================================
-*/
-.technical>div>span>span {
-    text-decoration: underline;
-    color: white;
-    font-size: 3em;
-    font-weight: 600;
-}
-
-.star_layer {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    /*transform: translateX(-50%) translateY(-50%);*/
-}
-
-.letter {
-    opacity: 0;
-    color: white;
-    transform: scale(0);
-    transition-duration: .25s;
-    font-size: 40px;
-}
-
-.star_layer span {
-    position: relative;
-}
-
-.star {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    color: white;
-    font-size: 100%;
-    opacity: 1;
-    /*text-shadow: 5px 5px lightyellow;*/
-    -webkit-filter: blur(5px) drop-shadow(4px 4px 20px white);
-
-}
-
-.starshining {
-    -webkit-animation: startwinkle 1s ease-in;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-}
-
-@-webkit-keyframes startwinkle {
-    0% {
-        opacity: .6;
-    }
-    40% {
-        opacity: .6;
-    }
-    50% {
-        opacity: 1;
-    }
-    60% {
-        opacity: .6;
-    }
-    100% {
-        opacity: .6;
-    }
 }
 /*
 ====================================
