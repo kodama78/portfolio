@@ -192,7 +192,7 @@ $(document).ready(function() {
         triggerElement: '#starry_night',
         offset: 320,
         //duration: 500
-    }).setPin('#starry_night').addTo(controller);
+    }).setPin('#starry_night').addTo(controller).addIndicators();
 
     //Scene 2
     var scene2_tween = new TimelineMax()
@@ -249,7 +249,7 @@ $(document).ready(function() {
         duration: 800
     }).setPin('.star_layer',{
         pushFollowers: true
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     // var scene3_tween = new TimelineMax()
     //     .add(TweenMax.from('.small_dream', 1, {
