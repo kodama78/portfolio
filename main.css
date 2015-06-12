@@ -87,13 +87,25 @@ OFFSETS
     top: 25%;
 }
 #scene1_pin_offset{
-    top: 30%;
+    top: 15%;
 }
 #scene1_text_fade_out_offset{
-    top: 40%;
+    top: 35%;
 }
 #scene1_title_star_func_call{
+    top: 45%;
+}
+#scene1_skill_star_func_call{
     top: 50%;
+}
+#scene1_libraries_star_func_call{
+    top: 55%;
+}
+#scene1_productivity_star_func_call{
+    top: 60%;
+}
+#scene1_star_pin{
+    top: 45%;
 }
 /*
 ====================================
