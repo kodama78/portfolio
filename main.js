@@ -192,7 +192,7 @@ function star_maker(array) {
 function fake_star_maker(array) {
         for (var i = 0; i < array.length; i++) {
             var word = skills[i];
-            for (var j = 0; j < (word.length) * 4; j++) {
+            for (var j = 0; j < (word.length) * 3; j++) {
                 var left_random = Math.random() * offset - half_offset;
                 var top_random = Math.random() * offset - half_offset;
                 var left_offset = Math.floor(left_random * adjusted_width);
@@ -262,33 +262,48 @@ DOCUMENT READY
 ===================================================
 */
 $(document).ready(function() {
-    project_star_maker(projects);
-    ripple_maker(); 
+    // project_star_maker(projects);
+    //ripple_maker(); 
     //creates the static stars on star_layer1
-    fake_star_maker(skills);
+    //fake_star_maker(skills);
     //creates the animated stars that will create the letters for each set of arrays
     title_stars = star_maker(title);
     skills_stars = star_maker(skills);
     libraries_stars = star_maker(libraries);
-    productivity_stars = star_maker(productivity);
+    productivity_stars = star_maker(productivity);var scene1_text_fade_in_offset = $('#scene1_text_fade_in_offset').offset();
+    scene1_text_fade_in_offset = scene1_text_fade_in_offset.top;
+    var scene1_pin_offset = $('#scene1_pin_offset').offset();
+    scene1_pin_offset = scene1_pin_offset.top;
+    var scene1_text_fade_out_offset = $('#scene1_text_fade_out_offset').offset();
+    scene1_text_fade_out_offset = scene1_text_fade_out_offset.top;
+    var scene1_title_star_func_call = $('#scene1_title_star_func_call').offset();
+    scene1_title_star_func_call = scene1_title_star_func_call.top;
+    var scene1_skill_star_func_call = $('#scene1_skill_star_func_call').offset();
+    scene1_skill_star_func_call = scene1_skill_star_func_call.top;
+    var scene1_libraries_star_func_call = $('#scene1_libraries_star_func_call').offset();
+    scene1_libraries_star_func_call = scene1_libraries_star_func_call.top;
+    var scene1_productivity_star_func_call = $('#scene1_productivity_star_func_call').offset();
+    scene1_productivity_star_func_call = scene1_productivity_star_func_call.top;
+    var scene1_star_pin = $('#scene1_star_pin').offset();
+    scene1_star_pin = scene1_star_pin.top;
     /*
     ========================================================
     SCENE 1
     ========================================================
     */
     //Adds scaling and fade ins for header text and intro text
-    var scene1_text_fade_in_offset = $('#scene1_text_fade_in_offset').offset();
-    scene1_text_fade_in_offset = scene1_text_fade_in_offset.top;
+    
     var scene1_tween = new TimelineMax()
-        .add(TweenMax.to('#starry_night', 2, {
+        .add(TweenMax.to('#starry_night', 2.5, {
             transform: 'scale(1)'
         }))
-        .add(TweenMax.to('.star_layer1', 2, {
+        .add(TweenMax.to('.star_layer1', 3.5, {
             transform: 'scale(1)'
         }), '0')
-        .add(TweenMax.from('.intro_text', 0.5, {
+        .add(TweenMax.from('.intro_text', 1.5, {
             opacity: 0,
-        }), '0.5')
+        }), '2');
+
     var scene1 = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_text_fade_in_offset,
@@ -297,8 +312,7 @@ $(document).ready(function() {
 
     //pins the night_sky to screen. This will determine where the first scene is in relation
     //to the header. REMEMBER THIS!
-    var scene1_pin_offset = $('#scene1_pin_offset').offset();
-    scene1_pin_offset = scene1_pin_offset.top;
+    
     var scene1_pin = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_pin_offset,
@@ -309,8 +323,7 @@ $(document).ready(function() {
     SCENE 2
     ========================================================
     */
-    var scene1_text_fade_out_offset = $('#scene1_text_fade_out_offset').offset();
-    scene1_text_fade_out_offset = scene1_text_fade_out_offset.top;
+    
     var scene2_tween = new TimelineMax()
         .add(TweenMax.to('.intro_text', 1, {
             opacity: 0
@@ -327,8 +340,7 @@ $(document).ready(function() {
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
     //Scene that calls the star_maker function
-    var scene1_title_star_func_call = $('#scene1_title_star_func_call').offset();
-    scene1_title_star_func_call = scene1_title_star_func_call.top;
+    
     var title_mover = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_title_star_func_call,
@@ -337,8 +349,7 @@ $(document).ready(function() {
         shooting_star(title_stars);
     }).addTo(controller).addIndicators();
 
-    var scene1_skill_star_func_call = $('#scene1_skill_star_func_call').offset();
-    scene1_skill_star_func_call = scene1_skill_star_func_call.top;
+   
     var skills_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
@@ -347,8 +358,7 @@ $(document).ready(function() {
         shooting_star(skills_stars);
     }).addTo(controller).addIndicators();
 
-    var scene1_libraries_star_func_call = $('#scene1_libraries_star_func_call').offset();
-    scene1_libraries_star_func_call = scene1_libraries_star_func_call.top;
+    
     var libraries_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
@@ -357,8 +367,7 @@ $(document).ready(function() {
         shooting_star(libraries_stars);
     }).addTo(controller).addIndicators();
 
-    var scene1_productivity_star_func_call = $('#scene1_productivity_star_func_call').offset();
-    scene1_productivity_star_func_call = scene1_productivity_star_func_call.top;
+    
     var productivity_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
@@ -367,8 +376,7 @@ $(document).ready(function() {
         shooting_star(productivity_stars);
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
-    var scene1_star_pin = $('#scene1_star_pin').offset();
-    scene1_star_pin = scene1_star_pin.top;
+    
     var star_layer_pin = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_star_pin,
@@ -376,6 +384,21 @@ $(document).ready(function() {
     }).setPin('.star_layer', {
         pushFollowers: true
     }).addTo(controller).addIndicators();
+    
+    // var skills_fadeout = new TimelineMax()
+    //     .add(TweenMax.to('#scene1_title_star_func_call', 1, {
+    //         opacity: 0
+    //     }))
+         // .add(TweenMax.from('.scene2_header', 0.5, {
+        //     opacity: 0
+        // }))
+        // .add(TweenMax.to('.scene2_header', 1.5, {
+        //     opacity: 0
+        // }), '2')
+    // var skill_fader = new ScrollScene({
+    //     triggerElement: '#scene1',
+    //     offset: scene1_text_fade_out_offset,
+    // }).setTween(skills_fadeout).addTo(controller).addIndicators();
     /*
     ========================================================
     SCENE 3

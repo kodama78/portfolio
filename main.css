@@ -84,13 +84,13 @@ OFFSETS
     height: 0;
 }
 #scene1_text_fade_in_offset{
-    top: 25%;
+    top: 15%;
 }
 #scene1_pin_offset{
     top: 15%;
 }
 #scene1_text_fade_out_offset{
-    top: 35%;
+    top: 25%;
 }
 #scene1_title_star_func_call{
     top: 45%;
@@ -115,7 +115,7 @@ HEADER
 
 .main_header {
     position: fixed;
-    background-image: url('assets/images/headerbackground.png');
+    background-image: url('assets/images/headerbackground_2.jpg');
     color: white;
     z-index: 1;
     text-align: center;
