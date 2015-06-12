@@ -192,7 +192,7 @@ function star_maker(array) {
 function fake_star_maker(array) {
         for (var i = 0; i < array.length; i++) {
             var word = skills[i];
-            for (var j = 0; j < (word.length) * 5; j++) {
+            for (var j = 0; j < (word.length) * 4; j++) {
                 var left_random = Math.random() * offset - half_offset;
                 var top_random = Math.random() * offset - half_offset;
                 var left_offset = Math.floor(left_random * adjusted_width);

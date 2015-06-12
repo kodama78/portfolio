@@ -32,7 +32,7 @@ STAR FUNCTION STYLING
     color: white;
     transform: scale(0);
     transition-duration: .25s;
-    font-size: 40px;
+    font-size: 2em;
 }
 
 .star_layer span {
@@ -105,7 +105,7 @@ OFFSETS
     top: 60%;
 }
 #scene1_star_pin{
-    top: 45%;
+    top: 60%;
 }
 /*
 ====================================
@@ -199,7 +199,6 @@ SCENE 2
     position: relative;
     display: inline-block;
     opacity: 0.6;
-    z-index: 2;
 }
 
 .scene2_header {
@@ -209,13 +208,13 @@ SCENE 2
     color: white;
 }
 .technical{
-    margin-top: 15%;
-    margin-bottom: 5%;
+    margin-top: 0%;
+    margin-bottom: 2%;
 }
 
 .skills {
     position: absolute;
-    bottom: 5%;
+    bottom: 2%;
     left: 20%;
     color: white;
     opacity: 0;
@@ -223,7 +222,7 @@ SCENE 2
 
 .skills p,
 i {
-    font-size: 30px;
+    font-size: 3em;
     display: inline-block;
     margin-right: 5%;
 }
