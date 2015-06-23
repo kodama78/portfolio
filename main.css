@@ -84,7 +84,7 @@ OFFSETS
     height: 0;
 }
 #scene1_text_fade_in_offset{
-    top: 15%;
+    top: 25%;
 }
 #scene1_pin_offset{
     top: 15%;
@@ -106,6 +106,9 @@ OFFSETS
 }
 #scene1_star_pin{
     top: 60%;
+}
+#star_remove{
+    top: 55%;
 }
 /*
 ====================================

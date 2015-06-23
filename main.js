@@ -145,6 +145,10 @@ function project_star_maker(array){
         $('.project_div').append(word_div);
     }
 }
+function remove_star(){
+    $('.star').remove();
+}
+
 //creates the stars by running through the words in the array and then
 //running through the letters of each string. It then creates the letter and a star for
 //each one and then randomly places the star on the DOM according to the star_object function to create 
@@ -262,10 +266,10 @@ DOCUMENT READY
 ===================================================
 */
 $(document).ready(function() {
-    // project_star_maker(projects);
-    //ripple_maker(); 
+    project_star_maker(projects);
+    ripple_maker(); 
     //creates the static stars on star_layer1
-    //fake_star_maker(skills);
+    fake_star_maker(skills);
     //creates the animated stars that will create the letters for each set of arrays
     title_stars = star_maker(title);
     skills_stars = star_maker(skills);
@@ -273,19 +277,22 @@ $(document).ready(function() {
     productivity_stars = star_maker(productivity);var scene1_text_fade_in_offset = $('#scene1_text_fade_in_offset').offset();
     scene1_text_fade_in_offset = scene1_text_fade_in_offset.top;
     var scene1_pin_offset = $('#scene1_pin_offset').offset();
-    scene1_pin_offset = scene1_pin_offset.top;
+    scene1_pin_offset = parseInt(scene1_pin_offset.top);
     var scene1_text_fade_out_offset = $('#scene1_text_fade_out_offset').offset();
-    scene1_text_fade_out_offset = scene1_text_fade_out_offset.top;
+    scene1_text_fade_out_offset = parseInt(scene1_text_fade_out_offset.top);
     var scene1_title_star_func_call = $('#scene1_title_star_func_call').offset();
-    scene1_title_star_func_call = scene1_title_star_func_call.top;
+    scene1_title_star_func_call = parseInt(scene1_title_star_func_call.top);
     var scene1_skill_star_func_call = $('#scene1_skill_star_func_call').offset();
-    scene1_skill_star_func_call = scene1_skill_star_func_call.top;
+    scene1_skill_star_func_call = parseInt(scene1_skill_star_func_call.top);
     var scene1_libraries_star_func_call = $('#scene1_libraries_star_func_call').offset();
-    scene1_libraries_star_func_call = scene1_libraries_star_func_call.top;
+    scene1_libraries_star_func_call = parseInt(scene1_libraries_star_func_call.top);
     var scene1_productivity_star_func_call = $('#scene1_productivity_star_func_call').offset();
-    scene1_productivity_star_func_call = scene1_productivity_star_func_call.top;
+    scene1_productivity_star_func_call = parseInt(scene1_productivity_star_func_call.top);
     var scene1_star_pin = $('#scene1_star_pin').offset();
-    scene1_star_pin = scene1_star_pin.top;
+    scene1_star_pin = parseInt(scene1_star_pin.top);
+    var star_remover = $('#star_remove').offset();
+    star_remover = parseInt(star_remover.top);
+    console.log(star_remover);
     /*
     ========================================================
     SCENE 1
@@ -384,6 +391,14 @@ $(document).ready(function() {
     }).setPin('.star_layer', {
         pushFollowers: true
     }).addTo(controller).addIndicators();
+
+    var star_remove = new ScrollScene({
+        triggerElement: '#scene1',
+        reverse: false,
+        offset: star_remover,
+    }).on('start', function() {
+        remove_star();
+    }).addTo(controller).addIndicators();
     
     // var skills_fadeout = new TimelineMax()
     //     .add(TweenMax.to('#scene1_title_star_func_call', 1, {
@@ -404,23 +419,23 @@ $(document).ready(function() {
     SCENE 3
     ========================================================
     */
-    var project_mover = new ScrollScene({
-        triggerElement: '#scene3',
-        offset: -50,
-        reverse: false,
-    }).on('start', function(){
-        shooting_star(project_array);
-    }).addTo(controller).addIndicators();
-    //ripples the words
-    var ripple_start = new ScrollScene({
-        triggerElement: '#scene3',
-        offset: -50,
-    }).on('start', function() {
-        setTimeout(function(){
-            ripples();
-        }, 500);
+    // var project_mover = new ScrollScene({
+    //     triggerElement: '#scene3',
+    //     offset: -150,
+    //     reverse: false,
+    // }).on('start', function(){
+    //     shooting_star(project_array);
+    // }).addTo(controller).addIndicators();
+    // //ripples the words
+    // var ripple_start = new ScrollScene({
+    //     triggerElement: '#scene3',
+    //     offset: -150,
+    // }).on('start', function() {
+    //     setTimeout(function(){
+    //         ripples();
+    //     }, 500);
         
-    }).addTo(controller).addIndicators();
+    // }).addTo(controller).addIndicators();
     // var scene3_tween = new TimelineMax()
     //     .add(TweenMax.from('.small_dream', 1, {
     //         opacity: 0,
