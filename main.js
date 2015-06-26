@@ -71,7 +71,7 @@ function star_object(span, star, letter, position_data, success_function) {
             }, 400, function() {
                 _this_letter.animate({
                     opacity: 1
-                }, 150);
+                }, 350);
                 _this_star.css('opacity', 0);
             })
         }, _this_showtime);
@@ -145,8 +145,9 @@ function project_star_maker(array){
         $('.project_div').append(word_div);
     }
 }
-function remove_star(){
-    $('.star').remove();
+//This function is being used to remove the stars from the page to try to improve performance
+function remove_star(word){
+    $('.' + word + ' .star').remove();
 }
 
 //creates the stars by running through the words in the array and then
@@ -290,9 +291,14 @@ $(document).ready(function() {
     scene1_productivity_star_func_call = parseInt(scene1_productivity_star_func_call.top);
     var scene1_star_pin = $('#scene1_star_pin').offset();
     scene1_star_pin = parseInt(scene1_star_pin.top);
-    var star_remover = $('#star_remove').offset();
-    star_remover = parseInt(star_remover.top);
-    console.log(star_remover);
+    var title_star_remover = $('#title_star_remove').offset();
+    title_star_remover = parseInt(title_star_remover.top);
+    var languages_star_remover = $('#languages_star_remove').offset();
+    languages_star_remover = parseInt(languages_star_remover.top);
+    var libraries_star_remover = $('#libraries_star_remove').offset();
+    libraries_star_remover = parseInt(libraries_star_remover.top);
+    var productivity_star_remover = $('#productivity_star_remove').offset();
+    productivity_star_remover = parseInt(productivity_star_remover.top);
     /*
     ========================================================
     SCENE 1
@@ -304,12 +310,12 @@ $(document).ready(function() {
         .add(TweenMax.to('#starry_night', 2.5, {
             transform: 'scale(1)'
         }))
-        .add(TweenMax.to('.star_layer1', 3.5, {
+        .add(TweenMax.to('.star_layer1', 2.8, {
             transform: 'scale(1)'
-        }), '0')
+        }), '1')
         .add(TweenMax.from('.intro_text', 1.5, {
             opacity: 0,
-        }), '2');
+        }), '2.5');
 
     var scene1 = new ScrollScene({
         triggerElement: '#scene1',
@@ -335,12 +341,12 @@ $(document).ready(function() {
         .add(TweenMax.to('.intro_text', 1, {
             opacity: 0
         }))
-        // .add(TweenMax.from('.scene2_header', 0.5, {
-        //     opacity: 0
-        // }))
-        // .add(TweenMax.to('.scene2_header', 1.5, {
-        //     opacity: 0
-        // }), '2')
+        .add(TweenMax.from('.scene2_header', 0.5, {
+            opacity: 0
+        }))
+        .add(TweenMax.to('.scene2_header', 1.5, {
+            opacity: 0
+        }), '2')
     var scene2 = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_text_fade_out_offset,
@@ -356,8 +362,15 @@ $(document).ready(function() {
         shooting_star(title_stars);
     }).addTo(controller).addIndicators();
 
-   
-    var skills_mover = new ScrollScene({
+    var title_star_remove = new ScrollScene({
+        triggerElement: '#scene1',
+        reverse: false,
+        offset: title_star_remover,
+    }).on('start', function() {
+        remove_star('technical');
+    }).addTo(controller).addIndicators();
+
+    var languages_star_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
         offset: scene1_skill_star_func_call,
@@ -365,7 +378,14 @@ $(document).ready(function() {
         shooting_star(skills_stars);
     }).addTo(controller).addIndicators();
 
-    
+    var languages_star_remove = new ScrollScene({
+        triggerElement: '#scene1',
+        reverse: false,
+        offset: languages_star_remover,
+    }).on('start', function() {
+        remove_star('languages');
+    }).addTo(controller).addIndicators();
+
     var libraries_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
@@ -374,13 +394,28 @@ $(document).ready(function() {
         shooting_star(libraries_stars);
     }).addTo(controller).addIndicators();
 
-    
-    var productivity_mover = new ScrollScene({
+    var libraries_star_remove = new ScrollScene({
         triggerElement: '#scene1',
+        reverse: false,
+        offset: libraries_star_remover,
+    }).on('start', function() {
+        remove_star('libraries');
+    }).addTo(controller).addIndicators();
+
+    var productivity_mover = new ScrollScene({
+        triggerElement: '#scene1',  
         reverse: false,
         offset: scene1_productivity_star_func_call,
     }).on('start', function() {
         shooting_star(productivity_stars);
+    }).addTo(controller).addIndicators();
+
+    var productivity_star_remove = new ScrollScene({
+        triggerElement: '#scene1',
+        reverse: false,
+        offset: productivity_star_remover,
+    }).on('start', function() {
+        remove_star('productivity');
     }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     
@@ -392,62 +427,62 @@ $(document).ready(function() {
         pushFollowers: true
     }).addTo(controller).addIndicators();
 
-    var star_remove = new ScrollScene({
-        triggerElement: '#scene1',
-        reverse: false,
-        offset: star_remover,
-    }).on('start', function() {
-        remove_star();
-    }).addTo(controller).addIndicators();
-    
-    // var skills_fadeout = new TimelineMax()
-    //     .add(TweenMax.to('#scene1_title_star_func_call', 1, {
-    //         opacity: 0
-    //     }))
-         // .add(TweenMax.from('.scene2_header', 0.5, {
-        //     opacity: 0
-        // }))
-        // .add(TweenMax.to('.scene2_header', 1.5, {
-        //     opacity: 0
-        // }), '2')
-    // var skill_fader = new ScrollScene({
+    // var star_remove = new ScrollScene({
     //     triggerElement: '#scene1',
-    //     offset: scene1_text_fade_out_offset,
-    // }).setTween(skills_fadeout).addTo(controller).addIndicators();
+    //     reverse: false,
+    //     offset: star_remover,
+    // }).on('start', function() {
+    //     remove_star('technical');
+    // }).addTo(controller).addIndicators();
+    
+    var skills_fadeout = new TimelineMax()
+        .add(TweenMax.to('#scene1_title_star_func_call', 1, {
+            opacity: 0
+        }))
+         .add(TweenMax.from('.scene2_header', 0.5, {
+            opacity: 0
+        }))
+        .add(TweenMax.to('.scene2_header', 1.5, {
+            opacity: 0
+        }), '2')
+    var skill_fader = new ScrollScene({
+        triggerElement: '#scene1',
+        offset: scene1_text_fade_out_offset,
+    }).setTween(skills_fadeout).addTo(controller).addIndicators();
     /*
     ========================================================
     SCENE 3
     ========================================================
     */
-    // var project_mover = new ScrollScene({
-    //     triggerElement: '#scene3',
-    //     offset: -150,
-    //     reverse: false,
-    // }).on('start', function(){
-    //     shooting_star(project_array);
-    // }).addTo(controller).addIndicators();
-    // //ripples the words
-    // var ripple_start = new ScrollScene({
-    //     triggerElement: '#scene3',
-    //     offset: -150,
-    // }).on('start', function() {
-    //     setTimeout(function(){
-    //         ripples();
-    //     }, 500);
+    var project_mover = new ScrollScene({
+        triggerElement: '#scene3',
+        offset: -150,
+        reverse: false,
+    }).on('start', function(){
+        shooting_star(project_array);
+    }).addTo(controller).addIndicators();
+    //ripples the words
+    var ripple_start = new ScrollScene({
+        triggerElement: '#scene3',
+        offset: -150,
+    }).on('start', function() {
+        setTimeout(function(){
+            ripples();
+        }, 500);
         
-    // }).addTo(controller).addIndicators();
-    // var scene3_tween = new TimelineMax()
-    //     .add(TweenMax.from('.small_dream', 1, {
-    //         opacity: 0,
-    //     }), '0.5')
-    //     .add(TweenMax.from('.medium_dream', 1, {
-    //         opacity: 0,
-    //     }), '0.25')
-    //     .add(TweenMax.from('.big_dream', 1, {
-    //         opacity: 0,
-    //     }),'0.25')
-    // var scene3_scroll = new ScrollScene({
-    //     triggerElement: '#scene3',
-    //     offset: -250,
-    // }).setTween(scene3_tween).addTo(controller).addIndicators();
+    }).addTo(controller).addIndicators();
+    var scene3_tween = new TimelineMax()
+        .add(TweenMax.from('.small_dream', 1, {
+            opacity: 0,
+        }), '0.5')
+        .add(TweenMax.from('.medium_dream', 1, {
+            opacity: 0,
+        }), '0.25')
+        .add(TweenMax.from('.big_dream', 1, {
+            opacity: 0,
+        }),'0.25')
+    var scene3_scroll = new ScrollScene({
+        triggerElement: '#scene3',
+        offset: -250,
+    }).setTween(scene3_tween).addTo(controller).addIndicators();
 });
