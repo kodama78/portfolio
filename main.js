@@ -63,16 +63,19 @@ function star_object(span, star, letter, position_data, success_function) {
             //     '-webkit-filter': 'blur(' + _this_top_shadow + 'px)'
             // });
             _this_star.animate({
-                left: '2px',
-                top: '2px',
+                left: '-11px',
+                top: '-5px',
                 opacity: 1,
-                'font-size': '200%',
-                'margin-left':'30%'
-            }, 400, function() {
-                _this_letter.animate({
-                    opacity: 1
-                }, 350);
-                _this_star.css('opacity', 0);
+                'font-size': '150%',
+                'margin-left':'30%',
+            }, 200, function() {
+                _this_letter.css({
+                    opacity: 1,
+                    transform: 'scale3d(1,1,1)',
+                });
+                _this_star.animate({
+                    opacity: 0.1
+                }, 1350);
             })
         }, _this_showtime);
     }
@@ -129,7 +132,7 @@ function project_star_maker(array){
         var span = $('<span>');
         //var twinkle_start = Math.random() * 5;
         var star = $('<i>').addClass('fa fa-star star').css({
-            'left': left_offset + 'px',
+            // 'left': left_offset + 'px',
             'top': top_offset + 'px',
             // '-webkit-animation-delay': twinkle_start + 's',
         });
@@ -307,15 +310,16 @@ $(document).ready(function() {
     //Adds scaling and fade ins for header text and intro text
     
     var scene1_tween = new TimelineMax()
-        .add(TweenMax.to('#starry_night', 2.5, {
+        .add(TweenMax.to('#starry_night', 1.5, {
             transform: 'scale(1)'
         }))
-        .add(TweenMax.to('.star_layer1', 2.8, {
+        .add(TweenMax.to('.star_layer1', 1.7, {
             transform: 'scale(1)'
         }), '1')
-        .add(TweenMax.from('.intro_text', 1.5, {
+        .add(TweenMax.from('.intro_text', 2, {
             opacity: 0,
-        }), '2.5');
+            transform:'scale3d(0,0,0)'
+        }), '1');
 
     var scene1 = new ScrollScene({
         triggerElement: '#scene1',

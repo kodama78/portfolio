@@ -14,8 +14,11 @@ STAR FUNCTION STYLING
 .technical>div>span>span {
     text-decoration: underline;
     color: white;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 600;
+    display: inline-block;
+    transform: scale3d(0, 0, 0);
+    transition-duration: 1s;
 }
 
 .star_layer {
@@ -24,15 +27,15 @@ STAR FUNCTION STYLING
     position: absolute;
     top: 50%;
     text-align: center;
-    /*transform: translateX(-50%) translateY(-50%);*/
 }
 
 .letter {
     opacity: 0;
     color: white;
-    transform: scale(0);
-    transition-duration: .25s;
-    font-size: 2em;
+    transform: scale3d(0, 0, 0);
+    transition-duration: 1s;
+    font-size: 1.5em;
+    display: inline-block;
 }
 
 .star_layer span {
@@ -195,6 +198,7 @@ SCENE 1
     left: 10%;
     color: white;
     font-size: 20px;
+    transform:scale3d(1,1,1);
 }
 
 .intro_text > h3 {
