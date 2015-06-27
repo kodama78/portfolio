@@ -105,19 +105,19 @@ OFFSETS
     top: 60%;
 }
 #languages_star_remove{
-    top: 75%;
+    top: 85%;
 }
 #scene1_libraries_star_func_call{
-    top: 75%;
+    top: 60%;
 }
 #libraries_star_remove{
     top: 85%;
 }
 #scene1_productivity_star_func_call{
-    top: 85%;
+    top: 60%;
 }
 #productivity_star_remove{
-    top: 90%;
+    top: 85%;
 }
 #scene1_star_pin{
     top: 60%;
@@ -140,6 +140,7 @@ HEADER
 
 .logo_container {
     display: inline-block;
+    margin-top: 3.5%;
 }
 
 .logo {

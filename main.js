@@ -152,6 +152,10 @@ function project_star_maker(array){
 function remove_star(word){
     $('.' + word + ' .star').remove();
 }
+//This removes all the stars from the page
+function remove_all_stars(){
+    $('.star').remove();
+}
 
 //creates the stars by running through the words in the array and then
 //running through the letters of each string. It then creates the letter and a star for
@@ -356,7 +360,7 @@ $(document).ready(function() {
         offset: scene1_text_fade_out_offset,
     }).setTween(scene2_tween).addTo(controller).addIndicators();
 
-    //Scene that calls the star_maker function
+    //Scenes that calls the star_maker function
     
     var title_mover = new ScrollScene({
         triggerElement: '#scene1',
@@ -382,14 +386,6 @@ $(document).ready(function() {
         shooting_star(skills_stars);
     }).addTo(controller).addIndicators();
 
-    var languages_star_remove = new ScrollScene({
-        triggerElement: '#scene1',
-        reverse: false,
-        offset: languages_star_remover,
-    }).on('start', function() {
-        remove_star('languages');
-    }).addTo(controller).addIndicators();
-
     var libraries_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
@@ -398,13 +394,21 @@ $(document).ready(function() {
         shooting_star(libraries_stars);
     }).addTo(controller).addIndicators();
 
-    var libraries_star_remove = new ScrollScene({
+     var all_stars_remove = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
-        offset: libraries_star_remover,
+        offset: languages_star_remover,
     }).on('start', function() {
-        remove_star('libraries');
+        remove_all_stars();
     }).addTo(controller).addIndicators();
+
+    // var libraries_star_remove = new ScrollScene({
+    //     triggerElement: '#scene1',
+    //     reverse: false,
+    //     offset: libraries_star_remover,
+    // }).on('start', function() {
+    //     remove_star('libraries');
+    // }).addTo(controller).addIndicators();
 
     var productivity_mover = new ScrollScene({
         triggerElement: '#scene1',  
@@ -414,13 +418,13 @@ $(document).ready(function() {
         shooting_star(productivity_stars);
     }).addTo(controller).addIndicators();
 
-    var productivity_star_remove = new ScrollScene({
-        triggerElement: '#scene1',
-        reverse: false,
-        offset: productivity_star_remover,
-    }).on('start', function() {
-        remove_star('productivity');
-    }).addTo(controller).addIndicators();
+    // var productivity_star_remove = new ScrollScene({
+    //     triggerElement: '#scene1',
+    //     reverse: false,
+    //     offset: productivity_star_remover,
+    // }).on('start', function() {
+    //     remove_star('productivity');
+    // }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
     
     var star_layer_pin = new ScrollScene({
@@ -452,7 +456,9 @@ $(document).ready(function() {
     var skill_fader = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_text_fade_out_offset,
-    }).setTween(skills_fadeout).addTo(controller).addIndicators();
+    }).setTween(skills_fadeout).addTo(controller);
+    
+
     /*
     ========================================================
     SCENE 3
