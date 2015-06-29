@@ -52,7 +52,10 @@ STAR FUNCTION STYLING
     /*text-shadow: 5px 5px lightyellow;*/
     -webkit-filter: blur(5px) drop-shadow(4px 4px 20px white);
 }
-
+#project_star{
+    left: 45%;
+    top: 10%;
+}
 .starshining {
     -webkit-animation: startwinkle 1s ease-in;
     -webkit-animation-iteration-count: infinite;
@@ -122,7 +125,12 @@ OFFSETS
 #scene1_star_pin{
     top: 60%;
 }
-
+#projects_star_maker_call{
+    top: 0%;
+}
+#projects_star_func_call{
+    top: 60%;
+}
 /*
 ====================================
 HEADER
@@ -198,7 +206,7 @@ SCENE 1
     top: 10%;
     left: 10%;
     color: white;
-    font-size: 20px;
+    font-size: 1.5em;
     transform:scale3d(1,1,1);
 }
 
@@ -206,7 +214,7 @@ SCENE 1
     font-size: 60px;
 }
 .intro_text > p{
-    font-size: 30px;
+    font-size: 1em;
 }
 /*
 ====================================

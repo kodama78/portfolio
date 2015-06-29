@@ -41,7 +41,10 @@ STARMAKER FUNCTIONS
 /*Skill function that will place the stars according to their random information given to it
 by the star_maker function. Attaches a closure that will cause the stars to shoot back to
 their original spots after a timeout which is set by showtime so that they shoot back at
-different times*/
+different times.*/
+//This function creates the star object for each letter in the array for technical, languages,
+//libraries, and productivity. It is not used for the project star maker function as more control
+//was needed for that
 function star_object(span, star, letter, position_data, success_function) {
     this.span = span;
     this.star = star;
@@ -88,22 +91,63 @@ MODAL FUNCTION FOR PROJECTS_STAR_MAKER
 //This function will create a modal based on the id and strings in the projects array.
 //Function will also remove the previous modal and append it to scene 3 each time. The
 //ID of the modal will be determined 
-function get_projects_modal_info_from_server(projects, project_name){
-    for(var i = 0; i < projects.length; i++){
-        if(projects[i] == project_name){
+// function get_projects_modal_info_from_server(projects, project_name){
+//     for(var i = 0; i < projects.length; i++){
+//         if(projects[i] == project_name){
 
-            page = 'assets/pages/modal.php?content='+projects[i];
-            $.ajax({
-                dataType: 'html',
-                method: 'GET',
-                url: page,
-                success: function(response){
-                    console.log(response);
-                    $('#dreamModal').html('');
-                    $('#dreamModal').append(response);
-                }
-            });
-        }
+//             page = 'assets/pages/modal.php?content='+projects[i];
+//             $.ajax({
+//                 dataType: 'html',
+//                 method: 'GET',
+//                 url: page,
+//                 success: function(response){
+//                     console.log(response);
+//                     $('#dreamModal').html('');
+//                     $('#dreamModal').append(response);
+//                 }
+//             });
+//         }
+//     }
+// }
+//This function does the same thing as the star_object creator. Stupid, I know. Both functions need
+//to be updated so that they do not need to be repeated. However, this is necessary to ship the 
+//code on time and allows for finer positioning of the stars in the projects page
+function project_star_object(span, star, letter, position_data, success_function) {
+    this.span = span;
+    this.star = star;
+    this.letter = letter;
+    this.position_data = position_data;
+    this.success_function = success_function;
+    this.go_home = function() {
+        var _this = this.span;
+        var _this_star = this.star;
+        var _this_letter = this.letter;
+        var _this_showtime = Math.random() * 2500 + 500;
+        // var _this_left_shadow = this.position_data.left_random.toFixed(2) * shadow_offset;
+        // var _this_top_shadow = this.position_data.top_random.toFixed(2) * shadow_offset;
+        _this = this;
+        setTimeout(function() {
+            _this_star.removeClass('starshining');
+            // .css({
+            //     'text-shadow': _this_left_shadow + 'px ' + _this_top_shadow + 'px white',
+            //     '-webkit-filter': 'blur(' + _this_top_shadow + 'px)'
+            // });
+            _this_star.animate({
+                left: '-11px',
+                top: '-5px',
+                opacity: 1,
+                'font-size': '150%',
+                'margin-left':'30%',
+            }, 200, function() {
+                _this_letter.css({
+                    opacity: 1,
+                    transform: 'scale3d(1,1,1)',
+                });
+                _this_star.animate({
+                    opacity: 0.1
+                }, 1350);
+            })
+        }, _this_showtime);
     }
 }
 /* This does the same as the starmaker function but removes the second for loop and only
@@ -135,13 +179,13 @@ function project_star_maker(array){
             // 'left': left_offset + 'px',
             'top': top_offset + 'px',
             // '-webkit-animation-delay': twinkle_start + 's',
-        });
+        }).attr('id','project_star');
 
         var letter = $('<span>', {
             text: word,
             class: 'project_word'
         });
-        var this_star = new star_object(span, star, letter, position_data);
+        var this_star = new project_star_object(span, star, letter, position_data);
         project_array.push(this_star);
         span.append(star, letter);
         word_div.append(span);
@@ -274,15 +318,14 @@ DOCUMENT READY
 ===================================================
 */
 $(document).ready(function() {
-    project_star_maker(projects);
-    ripple_maker(); 
     //creates the static stars on star_layer1
     fake_star_maker(skills);
     //creates the animated stars that will create the letters for each set of arrays
     title_stars = star_maker(title);
     skills_stars = star_maker(skills);
     libraries_stars = star_maker(libraries);
-    productivity_stars = star_maker(productivity);var scene1_text_fade_in_offset = $('#scene1_text_fade_in_offset').offset();
+    productivity_stars = star_maker(productivity);
+    var scene1_text_fade_in_offset = $('#scene1_text_fade_in_offset').offset();
     scene1_text_fade_in_offset = scene1_text_fade_in_offset.top;
     var scene1_pin_offset = $('#scene1_pin_offset').offset();
     scene1_pin_offset = parseInt(scene1_pin_offset.top);
@@ -306,6 +349,11 @@ $(document).ready(function() {
     libraries_star_remover = parseInt(libraries_star_remover.top);
     var productivity_star_remover = $('#productivity_star_remove').offset();
     productivity_star_remover = parseInt(productivity_star_remover.top);
+    var projects_star_func_call = $('#projects_star_func_call').offset();
+    projects_star_func_call = parseInt(projects_star_func_call.top);
+    var projects_star_maker_call = $('#projects_star_maker_call').offset();
+    projects_star_maker_call = parseInt(projects_star_maker_call.top);
+   
     /*
     ========================================================
     SCENE 1
@@ -464,35 +512,51 @@ $(document).ready(function() {
     SCENE 3
     ========================================================
     */
-    var project_mover = new ScrollScene({
-        triggerElement: '#scene3',
-        offset: -150,
+    //This creates the stars for the projects down below. Creating them here to hopefully take load
+    //off at the beginning of the portfolio load
+    var projects_star_maker_call = new ScrollScene({
+        triggerElement: '#scene2',
+        offset: projects_star_maker_call,
+        reverse: false,
+    }).on('start', function(){
+        project_star_maker(projects);
+        ripple_maker(); 
+    }).addTo(controller).addIndicators();
+
+    var projects_star_func_call = new ScrollScene({
+        triggerElement: '#scene2',
+        offset: projects_star_func_call,
         reverse: false,
     }).on('start', function(){
         shooting_star(project_array);
+        $.when(shooting_star(project_array)).done(function(){
+            setTimeout(function(){
+            ripples();
+        }), 1000;
+        });
+        // 
     }).addTo(controller).addIndicators();
     //ripples the words
-    var ripple_start = new ScrollScene({
-        triggerElement: '#scene3',
-        offset: -150,
-    }).on('start', function() {
-        setTimeout(function(){
-            ripples();
-        }, 500);
-        
-    }).addTo(controller).addIndicators();
-    var scene3_tween = new TimelineMax()
-        .add(TweenMax.from('.small_dream', 1, {
-            opacity: 0,
-        }), '0.5')
-        .add(TweenMax.from('.medium_dream', 1, {
-            opacity: 0,
-        }), '0.25')
-        .add(TweenMax.from('.big_dream', 1, {
-            opacity: 0,
-        }),'0.25')
-    var scene3_scroll = new ScrollScene({
-        triggerElement: '#scene3',
-        offset: -250,
-    }).setTween(scene3_tween).addTo(controller).addIndicators();
+    // var ripple_start = new ScrollScene({
+    //     triggerElement: '#scene3',
+    //     offset: -150,
+    // }).on('start', function() {
+    //     setTimeout(function(){
+    //         ripples();
+    //     }, 500);   
+    // }).addTo(controller).addIndicators();
+    // var scene3_tween = new TimelineMax()
+    //     .add(TweenMax.from('.small_dream', 1, {
+    //         opacity: 0,
+    //     }), '0.5')
+    //     .add(TweenMax.from('.medium_dream', 1, {
+    //         opacity: 0,
+    //     }), '0.25')
+    //     .add(TweenMax.from('.big_dream', 1, {
+    //         opacity: 0,
+    //     }),'0.25')
+    // var scene3_scroll = new ScrollScene({
+    //     triggerElement: '#scene3',
+    //     offset: -250,
+    // }).setTween(scene3_tween).addTo(controller).addIndicators();
 });
