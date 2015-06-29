@@ -5,7 +5,6 @@ body {
 .nopadding {
     padding: 0;
 }
-
 /*
 ====================================
 STAR FUNCTION STYLING
@@ -52,9 +51,8 @@ STAR FUNCTION STYLING
     /*text-shadow: 5px 5px lightyellow;*/
     -webkit-filter: blur(5px) drop-shadow(4px 4px 20px white);
 }
-#project_star{
-    left: 45%;
-    top: 10%;
+.project_word{
+     transform: scale3d(0, 0, 0);
 }
 .starshining {
     -webkit-animation: startwinkle 1s ease-in;
@@ -90,37 +88,37 @@ OFFSETS
     height: 0;
 }
 #scene1_text_fade_in_offset{
-    top: 15%;
+    top: 18%;
 }
 #scene1_pin_offset{
-    top: 15%;
+    top: 18%;
 }
 #scene1_text_fade_out_offset{
-    top: 35%;
+    top: 25%;
 }
 #scene1_title_star_func_call{
-    top: 35%;
+    top: 25%;
 }
 #title_star_remove{
-    top: 60%;
+    top: 100%;
 }
 #scene1_skill_star_func_call{
-    top: 60%;
-}
-#languages_star_remove{
-    top: 85%;
+    top: 50%;
 }
 #scene1_libraries_star_func_call{
-    top: 60%;
-}
-#libraries_star_remove{
-    top: 85%;
+    top: 50%;
 }
 #scene1_productivity_star_func_call{
-    top: 60%;
+    top: 50%;
 }
 #productivity_star_remove{
-    top: 85%;
+    top: 150%;
+}
+#libraries_star_remove{ 
+    top: 150%;
+}
+#languages_star_remove{
+    top: 150%;
 }
 #scene1_star_pin{
     top: 60%;
@@ -141,7 +139,7 @@ HEADER
     position: fixed;
     background-image: url('assets/images/headerbackground_2.jpg');
     color: white;
-    z-index: 1;
+    z-index: 4;
     text-align: center;
     opacity: 0.5;
 }
@@ -225,6 +223,7 @@ SCENE 2
     position: relative;
     display: inline-block;
     opacity: 0.6;
+    margin-top: 50%;
 }
 
 .scene2_header {
