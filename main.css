@@ -13,7 +13,7 @@ STAR FUNCTION STYLING
 .technical>div>span>span {
     text-decoration: underline;
     color: white;
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 600;
     display: inline-block;
     transform: scale3d(0, 0, 0);
@@ -33,7 +33,7 @@ STAR FUNCTION STYLING
     color: white;
     transform: scale3d(0, 0, 0);
     transition-duration: 1s;
-    font-size: 1.5em;
+    font-size: 1.8em;
     display: inline-block;
 }
 
@@ -201,10 +201,11 @@ SCENE 1
 }
 
 .intro_text > h3 {
-    font-size: 60px;
+    font-size: 2.2em;
+    text-align: center;
 }
 .intro_text > p{
-    font-size: 1em;
+    font-size: 1.2em;
 }
 /*
 ====================================
