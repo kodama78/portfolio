@@ -11,7 +11,7 @@ var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
 var libraries = ['libraries', 'bootstrap', 'jquery'];
 var productivity = ['productivity', 'git'];
 var title = ['technical', 'toolkit'];
-var projects = ['calculator', 'tic-tac-toe', 'todo', 'journal']
+var projects = ['calculator','todo','journal'];
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -180,7 +180,7 @@ function project_star_object(span, star, letter, position_data, success_function
 function project_star_maker(array) {
         for (var i = 0; i < array.length; i++) {
             var word = array[i];
-            var word_div = $('<div>').addClass('projects_position col-sm-3 ' + array[i]).css({
+            var word_div = $('<div>').addClass('projects_position col-sm-4 ' + array[i]).css({
                 'height': '150px',
                 'text-align': 'center',
                 'cursor': 'pointer',
