@@ -147,7 +147,7 @@ HEADER
     color: white;
     z-index: 4;
     text-align: center;
-    opacity: 0.5;
+    opacity: 1;
 }
 .logo_container {
     display: inline-block;
@@ -186,7 +186,7 @@ SCENE 1
     display: block;
 }
 .night_sky {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 #starry_night {
@@ -224,7 +224,7 @@ SCENE 2
 #scene2 {
     position: relative;
     display: inline-block;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .scene2_header {
@@ -259,7 +259,7 @@ SCENE 3
 */
 .lakefire{
     margin-top: -15%;
-    opacity: 0.5;
+    opacity: 1;
     z-index: 4;
 }
 .bubble {
