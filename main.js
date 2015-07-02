@@ -26,7 +26,7 @@ var project_array = []; //used in the star_maker function in the document ready 
 
 //This document ready is used to make sure that the star_maker 
 //functions will not error out
-$(window).load(function(){
+$(document).ready(function(){
     starfield = $('.star_layer');
     offset = 2;
     half_offset = offset / 2;
@@ -400,7 +400,11 @@ $(window).load(function() {
     var scene1_text_position = $('#scene1_text_fade_in_offset').position();
     scene1_text_position = scene1_text_position.top;
     var window_height = $(document).height();
+    console.log('window height is ', window_height);
+    console.log($('#scene1').height() + ' is the height of scene 1');
+    console.log('scene1_text_position is ', scene1_text_position);
     var scene1_text_fade_in_top = scene1_text_fade_in_offset.top;
+    console.log('scene1_text_fade_top is ', scene1_text_fade_in_top);
     
     var scene1_pin_offset = $('#scene1_pin_offset').offset();
     var scene1_pin_top = parseInt(scene1_pin_offset.top);
@@ -420,9 +424,8 @@ $(window).load(function() {
     var scene1_productivity_star_func_call = $('#scene1_productivity_star_func_call').offset();
     var scene1_productivity_star_call_top = parseInt(scene1_productivity_star_func_call.top);
     
-    var scene1_star_pin = $('#scene1_star_pin').position();
-    var scene1_star_pin_top = parseInt(scene1_star_pin.top * 2);
-    console.log('scene1 star pin element is ', scene1_star_pin_top);
+    var scene1_star_pin = $('#scene1_star_pin').offset();
+    var scene1_star_pin_top = parseInt(scene1_star_pin.top);
     
     var title_star_remover = $('#title_star_remove').offset();
     title_star_remover = parseInt(title_star_remover.top);
