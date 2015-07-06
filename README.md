@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # portfolio
 
 # Adding existing files to GitHub
@@ -43,3 +44,7 @@ The workflow outlined in the readme below will be utilized for every assignment/
 #### You have done it! Your portofolio has now been added to your github account
 
 - Please note that text surrounded with brackets "[]" is meant for you to substitute your own corresponding value into the area, without the brackets.  For example: "hello [your name]"  would become "hello John" if your name was John.
+=======
+# c4_final_project
+Enter your final projects here
+>>>>>>> 583f03355ad75cab10dfdf2c830d5b2eff537bad
