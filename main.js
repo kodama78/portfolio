@@ -11,7 +11,7 @@ var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
 var libraries = ['libraries', 'bootstrap', 'jquery'];
 var productivity = ['productivity', 'git'];
 var title = ['technical', 'toolkit'];
-var projects = ['calculator','todo','journal'];
+var projects = ['calculator','sweet-corner','moment'];
 var starfield = null;
 var offset = null;
 var half_offset = null;
@@ -186,8 +186,17 @@ function project_star_maker(array) {
                 'z-index': 2,
             }).click(function() {
                 var project_name = $(this).text();
-                get_projects_modal_info_from_server(projects, project_name);
-                $('#dreamModal').modal('show');
+                if(project_name == 'moment'){
+                    project_name = 'c4_final_project';
+                    window.open("http://shawnotomo.com/projects/" + project_name, "PopupWindow");
+                }
+                else
+                {
+                    window.open("http://shawnotomo.com/projects/" + project_name, "PopupWindow");
+                // get_projects_modal_info_from_server(projects, project_name);
+                // $('#dreamModal').modal('show');
+                }
+                
             });
             var left_random = Math.random() * (offset / 2);
             var top_random = Math.random() * -(offset / 2);
