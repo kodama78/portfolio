@@ -9,7 +9,7 @@ controller = new ScrollMagic({
 //Global variables for star_maker function
 var skills = ['languages', 'html5', 'css3', 'javascript', 'php', 'mysql'];
 var libraries = ['libraries', 'bootstrap', 'jquery'];
-var productivity = ['productivity', 'git'];
+var productivity = ['productivity', 'git', 'dev tools'];
 var title = ['technical', 'toolkit'];
 var projects = ['calculator','sweet-corner','moment'];
 var starfield = null;
