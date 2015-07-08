@@ -527,7 +527,7 @@ $(window).load(function() {
 
     var languages_star_mover = new ScrollScene({
         triggerElement: '#scene1',
-        reverse: true,
+        reverse: false,
         offset: scene1_skill_star_call_top,
     }).on('start', function() {
         shooting_star(skills_stars);
