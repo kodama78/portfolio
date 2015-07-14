@@ -281,7 +281,7 @@ function star_maker(array) {
 function fake_star_maker(array) {
         for (var i = 0; i < array.length; i++) {
             var word = skills[i];
-            for (var j = 0; j < (word.length) * 3; j++) {
+            for (var j = 0; j < (word.length) * 2; j++) {
                 var left_random = Math.random() * offset - half_offset;
                 var top_random = Math.random() * offset - half_offset;
                 var left_offset = Math.floor(left_random * adjusted_width);
@@ -394,7 +394,7 @@ DOCUMENT READY
 $(window).load(function() {
 
     //creates the static stars on star_layer1
-    fake_star_maker(skills);
+    //fake_star_maker(skills);
     //creates the animated stars that will create the letters for each set of arrays
     title_stars = star_maker(title);
     skills_stars = star_maker(skills);
