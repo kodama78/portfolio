@@ -240,7 +240,7 @@ function remove_all_stars() {
 //The star_object gives it an animate that will pull it back to its original position from
 //its random position. It will then save it to an array and return the array.
 function star_maker(array) {
-        var star_array = []
+        var star_array = [];
         for (var i = 0; i < array.length; i++) {
             var word = array[i];
             word_string = array[0];
@@ -270,7 +270,13 @@ function star_maker(array) {
                 var this_star = new star_object(span, star, letter, position_data);
 
                 star_array.push(this_star);
-                span.append(star, letter);
+                if(j % 2 == 0){
+                    span.append(star, letter);
+                }
+                else{
+                    span.append(letter);
+                }
+                
                 word_div.append(span);
             }
             starfield.append(word_div);
@@ -392,7 +398,10 @@ DOCUMENT READY
 ===================================================
 */
 $(window).load(function() {
-
+    $(window).resize(function(){
+        location.reload();
+        $('body').scrollTop(0);
+    });
     //creates the static stars on star_layer1
     //fake_star_maker(skills);
     //creates the animated stars that will create the letters for each set of arrays
