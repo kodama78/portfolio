@@ -1,83 +1,134 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src = "main.js"></script>
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<link rel="stylesheet" type="text/css" href="assets/includes/font-awesome-4.3.0/css/font-awesome.min.css">
-	<title>My webpage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script src="assets/includes/scrollmagic.js"></script>
+    <script src="https://rawgit.com/janpaepke/ScrollMagic/master/js/jquery.scrollmagic.debug.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/includes/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Shawn Otomo's PORTFOLIO</title>
 </head>
+
 <body>
-<!-- main influence http://smallstudio.com.au -->
-	<div class="left_side">
-		<div class="side_content">
-			<div class="about-me">
-				
-				<img src="assets/images/cover_full.jpg">
-			<h1>A Little Bit About Me...</h1>
-			<p>Work-in progress web developer who is, at the moment, developing his full-stack web development skills through the LearningFuze cohort. I am mainly interested in javascript, jquery, php, mysql and other programming languages</p>
-
-			<h3>Things of Note</h2>
-			<p>Teacher for 12 years, Jiu-jitsu brown belt, self-published a young adult book for his daughter, complete and utter craft beer junkie.</p>
-			</div>
-			
-		</div><div class="side_handle">
-			About Me
-		</div>
-	</div>
-
-	<div class="main_content">
-		<div class="main-content-holder">
-			<div class="social">
-				<div class="logo-container">
-					<a href="https://www.facebook.com/shawn.otomo" target="_blank">
-						<i class="fa fa-facebook-official logo"></i>
-					</a>
-				</div>
-				<div class="logo-container">
-					<a href="https://github.com/kodama78" target="_blank">
-						<i class="fa fa-github logo"></i>
-					</a>
-					
-				</div>
-				<div class="logo-container">
-					<a href="https://www.linkedin.com/pub/shawn-otomo/87/532/264" target="_blank">
-						<i class="fa fa-linkedin-square logo"></i>
-					</a>
-				</div>
-				<div class="logo-container">
-					<a href="mailto:kodama78@gmail.com">
-						<i class="fa fa-envelope-o logo"></i>
-					</a>
-				</div>	
-			</div>
-			<div class="main-information">
-				<div class="centered-name">
-					<h1>Shawn Otomo</h1>
-					<h3>Web-developer in training</h3>
-				</div>
-				<div class="languages">
-					<h3>Languages</h3>
-					<p>HTML - Currently in the early to mid stages of learning and mastering html. I am becoming more fluent in the code and learning how it integrates with CSS.</p>
-					<p>CSS - CSS is the language that I am most unfamiliar with but am steadily gaining experience in through the curriculum at LearningFuze. Originally, I thought that it was purely for styling, but have found that it is much more complex and powerful than I imagined.</p>
-					<p>Javascript - Surprisingly, this is the language in which I have the most experience. I also find this to be the area of web development that most interests me. I truly enjoy the puzzle-solving aspect of Javascript.</p>
-				</div>
-			</div>
-		</div>	
-	</div>
-
-	<div class="right_side">
-		<div class="side_handle">
-		
-	</div><div class="side_content">
-		<div class="portfolio">
-			<header>
-				<h1>Projects and Work</h1>
-			</header>
-			
-		</div>
-	</div>
-	</div>
-	
+    <header class="main_header col-sm-12">
+        <div class="col-sm-4">
+            <div class="logo_container col-sm-4">
+                <a href="https://github.com/kodama78" target="_blank">
+                    <i class="fa fa-github logo"></i>
+                </a>
+            </div>
+            <div class="logo_container col-sm-4">
+                <a href="https://www.linkedin.com/pub/shawn-otomo/87/532/264" target="_blank">
+                    <i class="fa fa-linkedin-square logo"></i>
+                </a>
+            </div>
+            <div class="logo_container col-sm-4">
+                <a href="mailto:kodama78@gmail.com">
+                    <i class="fa fa-envelope-o logo"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h1 class="col-sm-12" id="name">Shawn Otomo</h1>
+            <!-- <div class="directions col-sm-2 col-sm-offset-5">
+                <i class=" arrow fa fa-arrow-circle-down"></i>
+            </div> -->
+        </div>
+        <div class="col-sm-4">
+            <!-- <ul class="nav navbar-nav">
+                <li><a>Skills</a></li>
+                <li><a>Portfolio</a></li>
+                <li><a>Contact Me</a></li>
+            </ul> -->
+        </div>
+    </header>
+    <!-- MAIN PAGE SCENE 1-->
+    <div class="scene col-sm-12 nopadding" id="scene1">
+        <!--scene 1 offsets -->
+        <div id="scene1_text_fade_in_offset" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_pin_offset" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_text_fade_out_offset" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_title_star_func_call" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_skill_star_func_call" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_libraries_star_func_call" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_productivity_star_func_call" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="scene1_star_pin" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="title_star_remove" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="languages_star_remove" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="libraries_star_remove" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="productivity_star_remove" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="productivity_star_remove" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="projects_star_maker_call" class="div_offsets col-sm-12 nopadding"></div>
+        <div id="projects_star_func_call" class="div_offsets col-sm-12 nopadding"></div>
+        <!--scene 1 offsets -->
+        <div class="starry_background col-sm-12 nopadding" id="starry_night">
+            <div class="night_sky col-sm-12 nopadding">
+                <img src="assets/images/night_sky_2.jpg" class="night_sky col-sm-12 nopadding">
+            </div>
+            <div class="intro_text col-sm-10">
+                <h3 class="col-sm-4">About Me</h3>
+                <p class="col-sm-12">I am a full stack web developer who has experience in HTML5, CSS3, Bootstrap, Javascript, JQuery, PHP, MySQL, REST, and APIs. I recently attended the LearningFuze Web Development Bootcamp to extend my knowledge in these areas and gain valuable experience as a developer.
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-12 star_layer1 static">
+        </div>
+        <div class="col-sm-12 star_layer2 slow_effect"></div>
+        <div class="col-sm-12 star_layer">
+            <h3 class="col-sm-12 technical"></h3>
+            <div class="col-sm-4 languages"></div>
+            <div class="col-sm-4 libraries"></div>
+            <div class="col-sm-4 productivity"></div>
+        </div>
+    </div>
+    <!-- SCENE 2 -->
+    <div class="scene col-sm-12 nopadding" id="scene2">
+        <!-- <div class="scene2_header col-sm-12">
+            <h3 class="col-sm-4">I emerged from the woods with newfound abilities...</h3>
+        </div> -->
+        <div class="forest_holder col-sm-12 nopadding" id="pink_forest">
+            <img src="assets/images/forest_2.png" class="forest col-sm-12 nopadding">
+        </div>
+        <!-- <div class="col-sm-8 skills">
+            <p>Projects</p>
+        </div> -->
+    </div>
+    <!-- SCENE 3 -->
+    <div class="scene col-sm-12 nopadding lakefire" id="scene3">
+        <div class="col-sm-12 nopadding project_div">
+        </div>
+        <!-- <div class="col-sm-6 dreams">
+            <div class="col-sm-12 big_dream bubble"></div>
+            <div class="col-sm-3 col-sm-offset-9 medium_dream bubble"></div>
+            <div class="col-sm-1 col-sm-offset-10 small_dream bubble"></div>
+        </div> -->
+        <div class="fire_holder col-sm-12 nopadding" id="campfire">
+            <img src="assets/images/campfire_2.png" class="col-sm-12 nopadding">
+            <!-- <table id="Table_01" width="1483" height="1021" border="0" cellpadding="0" cellspacing="0" class="col-sm-12 nopadding">
+                <tr>
+                    <td>
+                        <div style="height:79px; width:1483px"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="assets/images/campfire_images/campfire_3_02.png" width="1483" height="145" alt=""></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="assets/images/campfire_images/campfire_3_03.jpg" width="1483" height="797" alt=""></td>
+                </tr>
+            </table> -->
+        </div>
+    </div>
+    <div id="dreamModal" class="modal modal_cloud_style fade" role="dialog">
+    </div>
+    <script type="text/javascript" src="main.js"></script>
 </body>
+
 </html>
