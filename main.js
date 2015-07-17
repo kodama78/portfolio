@@ -312,12 +312,12 @@ function shooting_star(star_array) {
             star_array[i].go_home();
         }
     }
-    /*
-    ===================================================
-    RIPPLE FUNCTIONS
-    ===================================================
-    */
-    //creates divs for ripples
+/*
+===================================================
+RIPPLE FUNCTIONS
+===================================================
+*/
+//creates divs for ripples
 function ripple_maker() {
     for (var i = 0; i < projects.length; i++) {
         var tiny_c = $('<div>').addClass('tiny stone');
@@ -423,6 +423,8 @@ $(window).load(function() {
     console.log('scene1_text_position is ', scene1_text_position);
     var scene1_text_fade_in_top = scene1_text_fade_in_offset.top;
     console.log('scene1_text_fade_top is ', scene1_text_fade_in_top);
+
+    //These are being used to create the offsets for the scrollmagic plugin
     
     var scene1_pin_offset = $('#scene1_pin_offset').offset();
     var scene1_pin_top = parseInt(scene1_pin_offset.top);
