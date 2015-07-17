@@ -187,7 +187,7 @@ function project_star_maker(array) {
             }).click(function() {
                 var project_name = $(this).text();
                 if(project_name == 'moment'){
-                    project_name = 'c4_final_project';
+                    project_name = 'moment_app';
                     window.open("http://shawnotomo.com/projects/" + project_name, "PopupWindow");
                 }
                 else
