@@ -5,11 +5,14 @@ body {
 .nopadding {
     padding: 0;
 }
+
+
 /*
 ====================================
 STAR FUNCTION STYLING
 ====================================
 */
+
 .technical>div>span>span {
     text-decoration: underline;
     color: white;
@@ -55,9 +58,11 @@ STAR FUNCTION STYLING
     -moz-filter: blur(5px) drop-shadow(4px 4px 20px white);
     filter: blur(5px) drop-shadow(4px 4px 20px white);
 }
-.project_word{
-     transform: scale3d(0, 0, 0);
+
+.project_word {
+    transform: scale3d(0, 0, 0);
 }
+
 .starshining {
     -webkit-animation: startwinkle 1s ease-in;
     -moz-animation: startwinkle 1s ease-in;
@@ -84,93 +89,124 @@ STAR FUNCTION STYLING
         opacity: .6;
     }
 }
+
+
 /*
 ====================================
 OFFSETS
 ====================================
 */
-.div_offsets{
+
+.div_offsets {
     position: absolute;
     width: 0;
     height: 0;
 }
-#scene1_text_fade_in_offset{
+
+#scene1_text_fade_in_offset {
     top: 18%;
 }
-#scene1_pin_offset{
+
+#scene1_pin_offset {
     top: 18%;
 }
-#scene1_text_fade_out_offset{
+
+#scene1_text_fade_out_offset {
     top: 28%;
 }
-#scene1_title_star_func_call{
-    top: 28%;
+
+#reverse_title_star_func_call{
+    top: 38%;
 }
-#title_star_remove{
+
+#scene1_title_star_func_call {
+    top: 68%;
+}
+
+#title_star_remove {
     top: 100%;
 }
-#scene1_skill_star_func_call{
-    top: 50%;
+
+#scene1_skill_star_func_call {
+    top: 70%;
 }
-#scene1_libraries_star_func_call{
-    top: 50%;
+
+#scene1_libraries_star_func_call {
+    top: 70%;
 }
-#scene1_productivity_star_func_call{
-    top: 50%;
+
+#scene1_productivity_star_func_call {
+    top: 70%;
 }
-#productivity_star_remove{
-    top: 100%;
+
+#productivity_star_remove {
+    top: 120%;
 }
-#libraries_star_remove{ 
-    top: 100%;
+
+#libraries_star_remove {
+    top: 120%;
 }
-#languages_star_remove{
-    top: 100%;
+
+#languages_star_remove {
+    top: 120%;
 }
-#scene1_star_pin{
+
+#scene1_star_pin {
     top: 60%;
 }
-#projects_star_maker_call{
+
+#projects_star_maker_call {
     top: 30%;
 }
-#projects_star_func_call{
+
+#projects_star_func_call {
     top: 60%;
 }
+
+
 /*
 ====================================
 HEADER
 ====================================
 */
+
 .main_header {
     position: fixed;
     background-image: url('assets/images/headerbackground_2.jpg');
     color: white;
     z-index: 8;
     text-align: center;
-    opacity: 1;
+    opacity: 0.5;
 }
+
 .logo_container {
     display: inline-block;
     margin-top: 3.5%;
 }
+
 .logo {
     color: white;
     font-size: 30px;
 }
+
 #name {
     font-size: 3em;
     margin: 2% 0 0 0;
     /*transform: scale(1.5);*/
     font-weight: 700;
 }
+
 .nav {
     color: white;
     text-decoration: none;
     font-size: 25px;
 }
+
 span {
     text-transform: uppercase;
 }
+
+
 /*
 ====================================
 SCENE 1
@@ -180,19 +216,21 @@ SCENE 1
 .arrow {
     color: white;
 }
+
 #scene1 {
     position: relative;
     overflow: hidden;
     display: block;
 }
+
 .night_sky {
-    opacity: 1;
+    opacity: 0.5;
 }
 
 #starry_night {
     transform: scale(2);
     -webkit-transform: scale(2);
-    text-align:center; 
+    text-align: center;
 }
 
 .star_layer1 {
@@ -206,34 +244,38 @@ SCENE 1
     left: 10%;
     color: white;
     font-size: 1.5em;
-    transform:scale3d(1,1,1);
+    transform: scale3d(1, 1, 1);
 }
 
 .intro_text > h3 {
     font-size: 2.2em;
     text-align: center;
 }
-.intro_text > p{
+
+.intro_text > p {
     font-size: 1.2em;
 }
+
+
 /*
 ====================================
 SCENE 2
 ====================================
 */
+
 #scene2 {
     position: relative;
     display: inline-block;
-    opacity: 1;
+    opacity: 0.5;
 }
 
 .scene2_header {
     position: absolute;
     /*top: -15%;*/
-    
     color: white;
 }
-.technical{
+
+.technical {
     margin-top: 0%;
     margin-bottom: 2%;
 }
@@ -252,16 +294,30 @@ i {
     display: inline-block;
     margin-right: 5%;
 }
+
+
 /*
 ====================================
 SCENE 3
 ====================================
 */
-.lakefire{
+
+#project_header_sign {
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 46%;
+    top: 10%;
+    border-bottom: 1px solid white;
+    font-size: 3em;
+}
+
+.lakefire {
     margin-top: -15%;
-    opacity: 1;
+    opacity: 0.5;
     z-index: 4;
 }
+
 .bubble {
     background-color: white;
     border-radius: 100% / 100%;
@@ -287,10 +343,13 @@ SCENE 3
     background-color: rgb(181, 102, 199);
     font-size: 50px;
 }
-.project_div{
+
+.project_div {
     position: absolute;
     top: 30%;
 }
+
+
 /*.medium_dream {
     height: 10%;
     width: 5%;
@@ -300,57 +359,32 @@ SCENE 3
     height: 8%;
     width: 3%;
 }*/
-/*
-====================================
-MODAL STYLING
-====================================
-*/
-/*.modal-dialog{
-    position: absolute;
-}
-.modal-body, .modal-header, .modal-footer{
-    border: 1px solid white;
-}
-.modal-header{
-    height:10px;
-    width: 10px;
-}*/
 
-/*.modal-body{
-    height: 80vh;
-    width: 80vw;
-}*/
-/*.modal-footer{
-    height: 30px;
-    width: 30px;
-}*/
-/*.iframe{
-    width: 80%;
-    min-height: 80%;
-    background-color: transparent;
-}*/
+
 /*
 ====================================
 WORD RIPPLES
 ====================================
 */
 
-.project_word{
+.project_word {
     opacity: 0;
     color: white;
     transform: scale(0);
     transition-duration: 4.5s;
     font-size: 40px;
-     -webkit-filter: blur(10px) drop-shadow(1px 1px 20px blue);
+    -webkit-filter: blur(10px) drop-shadow(1px 1px 20px blue);
 }
-.word_stone{
+
+.word_stone {
     color: white;
     font-weight: 700;
     z-index: 3;
     -webkit-filter: blur(0px) drop-shadow(1px 1px 20px blue);
     opacity: 1;
 }
-.stone{
+
+.stone {
     border-radius: 100% / 100%;
     position: absolute;
     opacity: 0.5;
@@ -362,52 +396,58 @@ WORD RIPPLES
     left: 1.5%;
     top: -20%;
 }
-.calculator{
-}
-.tic-tac-toe{
-}
-.todo{
-}
-.journal{
-}
-.tiny{
+
+.calculator {}
+
+.tic-tac-toe {}
+
+.todo {}
+
+.journal {}
+
+.tiny {
     transform: scale(0);
     transition-duration: 2s;
     -webkit-filter: blur(2px) drop-shadow(1px 1px 20px white);
 }
-.tiny_stone{
-     border: 5px solid white;
+
+.tiny_stone {
+    border: 5px solid white;
     background-color: rgb(88, 111, 192);
-    transform:scale(0.4);
+    transform: scale(0.4);
     opacity: 0;
 }
-.xs{
+
+.xs {
     transition-duration: 3s;
     transform: scale(0);
     border-color: transparent;
-
     -webkit-filter: blur(2px) drop-shadow(1px 1px 20px white);
 }
-.xs_stone{
+
+.xs_stone {
     border: 5px solid white;
     background-color: rgb(73, 136, 211);
     /*transform:scaleX(1.8);*/
-    transform:scale(0.8);
+    transform: scale(0.8);
     opacity: 0;
 }
-.small{
+
+.small {
     transition-duration: 4s;
     transform: scale(0.6);
     -webkit-filter: blur(2px) drop-shadow(1px 1px 20px white);
-    opacity:0;
+    opacity: 0;
 }
-.small_stone{
+
+.small_stone {
     border: 10px solid white;
     background-color: rgb(168, 60, 212);
     /*transform:scaleX(3);*/
-    transform:scale(1.6);
+    transform: scale(1.6);
     opacity: 1;
 }
-.small_stone_gone{
-    opacity:0;
+
+.small_stone_gone {
+    opacity: 0;
 }

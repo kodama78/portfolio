@@ -88,6 +88,26 @@ function star_object(span, star, letter, position_data, success_function) {
                 })
             }, _this_showtime);
         }
+        this.leave_home = function(){
+            var _this = this.span;
+            var _this_star = this.star;
+            var _this_letter = this.letter;
+            var _this_position = this.position_data;
+             _this = this;
+            setTimeout(function(){
+                _this_letter.css({
+                    opacity: 0,
+                    transform: 'scale3d(0,0,0)'
+                    });
+                _this_star.animate({
+                    left: _this_position.left_random,
+                    top: _this_position.top_random,
+                    opacity: 1,
+                    'font-size': '150%',
+                    'margin-left': '30%',
+                }, 500);
+            }, 200);
+        }    
         this.do_on_last = function(){
             if(this.is_last){
                 console.log("I was last, I will do something");
@@ -193,8 +213,6 @@ function project_star_maker(array) {
                 else
                 {
                     window.open("http://shawnotomo.com/projects/" + project_name, "PopupWindow");
-                // get_projects_modal_info_from_server(projects, project_name);
-                // $('#dreamModal').modal('show');
                 }
                 
             });
@@ -251,11 +269,13 @@ function star_maker(array) {
                 var left_random = Math.random() * offset - half_offset;
                 var top_random = Math.random() * offset - half_offset;
                 var left_offset = Math.floor(left_random * adjusted_width);
+                console.log('left_offset is ', left_offset);
                 var top_offset = Math.floor(top_random * adjusted_height);
+                console.log('top_offset is ', top_offset);
                 var position_data = {
-                    left_random: left_random,
-                    top_random: top_random,
-                }
+                    left_random: left_offset,
+                    top_random: top_offset,
+                }  
                 var span = $('<span>');
                 var twinkle_start = Math.random() * 5;
                 var star = $('<i>').addClass('fa fa-star starshining star').css({
@@ -312,6 +332,12 @@ function shooting_star(star_array) {
             star_array[i].go_home();
         }
     }
+
+function reverse_shooting_star(star_array){
+    for (var i = 0; i < star_array.length; i++) {
+            star_array[i].leave_home();
+    }
+}
 /*
 ===================================================
 RIPPLE FUNCTIONS
@@ -452,6 +478,9 @@ $(window).load(function() {
     
     var languages_star_remover = $('#languages_star_remove').offset();
     languages_star_remover = parseInt(languages_star_remover.top);
+
+    var reverse_title_star_func_call = $('#reverse_title_star_func_call').offset();
+    var reverse_title_star_func_top = parseInt(reverse_title_star_func_call.top);
     
     // var libraries_star_remover = $('#libraries_star_remove').offset();
     // libraries_star_remover = parseInt(libraries_star_remover.top);
@@ -479,16 +508,15 @@ $(window).load(function() {
         .add(TweenMax.to('.star_layer1', 1.7, {
             transform: 'scale(1)'
         }), '1')
-        .add(TweenMax.from('.intro_text', 1.5, {
+        .add(TweenMax.from('.intro_text', 1.2, {
             opacity: 0,
             transform: 'scale3d(0,0,0)'
         }),'0.5');
-    console.log('scene1 offset is ', scene1_text_fade_in_offset);
     var scene1 = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_text_fade_in_top,
         reverse: false,
-    }).setTween(scene1_tween).addTo(controller);
+    }).setTween(scene1_tween).addTo(controller).addIndicators();
 
     //pins the night_sky to screen. This will determine where the first scene is in relation
     //to the header. REMEMBER THIS!
@@ -496,7 +524,7 @@ $(window).load(function() {
     var scene1_pin = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_pin_top,
-    }).setPin('#starry_night').addTo(controller);
+    }).setPin('#starry_night').addTo(controller).addIndicators();
     /*
     ========================================================
     SCENE 2
@@ -516,17 +544,25 @@ $(window).load(function() {
     var scene2 = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_text_fade_out_top,
-    }).setTween(scene2_tween).addTo(controller);
+    }).setTween(scene2_tween).addTo(controller).addIndicators();
+
+    var reverse_title_mover = new ScrollScene({
+        triggerElement: '#scene1',
+        offset: reverse_title_star_func_top,
+        reverse: true,
+    }).on('start', function() {
+        reverse_shooting_star(title_stars);
+    }).addTo(controller).addIndicators();
 
     //Scenes that calls the star_maker function
 
     var title_mover = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_title_star_call_top,
-        reverse: false,
+        reverse: true,
     }).on('start', function() {
         shooting_star(title_stars);
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     var title_star_remove = new ScrollScene({
         triggerElement: '#scene1',
@@ -534,7 +570,7 @@ $(window).load(function() {
         offset: title_star_remover,
     }).on('start', function() {
         remove_star('technical');
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     var languages_star_mover = new ScrollScene({
         triggerElement: '#scene1',
@@ -543,7 +579,7 @@ $(window).load(function() {
     }).on('start', function() {
         shooting_star(skills_stars);
         disableScroll();
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     var libraries_mover = new ScrollScene({
         triggerElement: '#scene1',
@@ -551,7 +587,7 @@ $(window).load(function() {
         offset: scene1_libraries_star_call_top,
     }).on('start', function() {
         shooting_star(libraries_stars);
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     var productivity_mover = new ScrollScene({
         triggerElement: '#scene1',
@@ -559,7 +595,7 @@ $(window).load(function() {
         offset: scene1_productivity_star_call_top,
     }).on('start', function() {
         shooting_star(productivity_stars);
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     var all_stars_remove = new ScrollScene({
         triggerElement: '#scene1',
@@ -567,7 +603,7 @@ $(window).load(function() {
         offset: languages_star_remover,
     }).on('start', function() {
         remove_all_stars();
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     // var libraries_star_remove = new ScrollScene({
     //     triggerElement: '#scene1',
@@ -575,7 +611,7 @@ $(window).load(function() {
     //     offset: libraries_star_remover,
     // }).on('start', function() {
     //     remove_star('libraries');
-    // }).addTo(controller);
+    // }).addTo(controller).addIndicators();
 
     
 
@@ -585,7 +621,7 @@ $(window).load(function() {
     //     offset: productivity_star_remover,
     // }).on('start', function() {
     //     remove_star('productivity');
-    // }).addTo(controller);
+    // }).addTo(controller).addIndicators();
     //pins the star layer to #starry_night
 
     var star_layer_pin = new ScrollScene({
@@ -594,7 +630,7 @@ $(window).load(function() {
         duration: 2000
     }).setPin('.star_layer', {
         pushFollowers: true
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     // var star_remove = new ScrollScene({
     //     triggerElement: '#scene1',
@@ -602,7 +638,7 @@ $(window).load(function() {
     //     offset: star_remover,
     // }).on('start', function() {
     //     remove_star('technical');
-    // }).addTo(controller);
+    // }).addTo(controller).addIndicators();
 
     var skills_fadeout = new TimelineMax()
         .add(TweenMax.to('#scene1_title_star_func_call', 1, {
@@ -617,12 +653,29 @@ $(window).load(function() {
     var skill_fader = new ScrollScene({
         triggerElement: '#scene1',
         offset: scene1_text_fade_out_offset,
-    }).setTween(skills_fadeout).addTo(controller);
+    }).setTween(skills_fadeout).addTo(controller).addIndicators();
     /*
     ========================================================
     SCENE 3
     ========================================================
     */
+    var toolkit_hide = new TimelineMax()
+        .add(TweenMax.to('.productivity', 0.2, {
+            opacity: 0
+        }))
+        .add(TweenMax.to('.languages', 0.3, {
+            opacity: 0
+        }))
+        .add(TweenMax.to('.libraries', 0.4, {
+            opacity: 0
+        }))
+        .add(TweenMax.to('.technical', 0.5, {
+            opacity: 0
+        }))
+    var toolkit_hide_trigger = new ScrollScene({
+        triggerElement: '#scene2',
+        offset: 100,
+    }).setTween(toolkit_hide).addTo(controller).addIndicators();
     //This creates the stars for the projects down below. Creating them here to hopefully take load
     //off at the beginning of the portfolio load
     var projects_star_maker_call = new ScrollScene({
@@ -632,7 +685,7 @@ $(window).load(function() {
     }).on('start', function() {
         project_star_maker(projects);
         ripple_maker();
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
 
     var projects_star_func_call = new ScrollScene({
         triggerElement: '#scene2',
@@ -645,7 +698,7 @@ $(window).load(function() {
                 ripples();
             }), 1000;
         });
-    }).addTo(controller);
+    }).addTo(controller).addIndicators();
     //ripples the words
     // var ripple_start = new ScrollScene({
     //     triggerElement: '#scene3',
@@ -654,7 +707,7 @@ $(window).load(function() {
     //     setTimeout(function(){
     //         ripples();
     //     }, 500);   
-    // }).addTo(controller);
+    // }).addTo(controller).addIndicators();
     // var scene3_tween = new TimelineMax()
     //     .add(TweenMax.from('.small_dream', 1, {
     //         opacity: 0,
@@ -668,5 +721,5 @@ $(window).load(function() {
     // var scene3_scroll = new ScrollScene({
     //     triggerElement: '#scene3',
     //     offset: -250,
-    // }).setTween(scene3_tween).addTo(controller);
+    // }).setTween(scene3_tween).addTo(controller).addIndicators();
 });
