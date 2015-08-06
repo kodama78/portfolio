@@ -488,6 +488,9 @@ $(window).load(function() {
     // var productivity_star_remover = $('#productivity_star_remove').offset();
     // productivity_star_remover = parseInt(productivity_star_remover.top);
     
+    var toolkit_fadeout_div = $('#toolkit_fadeout').offset();
+    var toolkit_fadeout_div_top = parseInt(reverse_title_star_func_call.top);
+
     var projects_star_func_call = $('#projects_star_func_call').offset();
     var projects_star_call_top = parseInt(projects_star_func_call.top);
     
@@ -558,19 +561,19 @@ $(window).load(function() {
 
     var title_mover = new ScrollScene({
         triggerElement: '#scene1',
-        offset: scene1_title_star_call_top,
+        offset: scene1_skill_star_call_top,
         reverse: true,
     }).on('start', function() {
         shooting_star(title_stars);
     }).addTo(controller).addIndicators();
 
-    var title_star_remove = new ScrollScene({
-        triggerElement: '#scene1',
-        reverse: false,
-        offset: title_star_remover,
-    }).on('start', function() {
-        remove_star('technical');
-    }).addTo(controller).addIndicators();
+    // var title_star_remove = new ScrollScene({
+    //     triggerElement: '#scene1',
+    //     reverse: false,
+    //     offset: title_star_remover,
+    // }).on('start', function() {
+    //     remove_star('technical');
+    // }).addTo(controller).addIndicators();
 
     var languages_star_mover = new ScrollScene({
         triggerElement: '#scene1',
@@ -584,7 +587,7 @@ $(window).load(function() {
     var libraries_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
-        offset: scene1_libraries_star_call_top,
+        offset: scene1_skill_star_call_top,
     }).on('start', function() {
         shooting_star(libraries_stars);
     }).addTo(controller).addIndicators();
@@ -592,18 +595,18 @@ $(window).load(function() {
     var productivity_mover = new ScrollScene({
         triggerElement: '#scene1',
         reverse: false,
-        offset: scene1_productivity_star_call_top,
+        offset: scene1_skill_star_call_top,
     }).on('start', function() {
         shooting_star(productivity_stars);
     }).addTo(controller).addIndicators();
 
-    var all_stars_remove = new ScrollScene({
-        triggerElement: '#scene1',
-        reverse: false,
-        offset: languages_star_remover,
-    }).on('start', function() {
-        remove_all_stars();
-    }).addTo(controller).addIndicators();
+    // var all_stars_remove = new ScrollScene({
+    //     triggerElement: '#scene1',
+    //     reverse: false,
+    //     offset: languages_star_remover,
+    // }).on('start', function() {
+    //     remove_all_stars();
+    // }).addTo(controller).addIndicators();
 
     // var libraries_star_remove = new ScrollScene({
     //     triggerElement: '#scene1',
@@ -663,18 +666,18 @@ $(window).load(function() {
         .add(TweenMax.to('.productivity', 0.2, {
             opacity: 0
         }))
-        .add(TweenMax.to('.languages', 0.3, {
+        .add(TweenMax.to('.languages', 0.2, {
             opacity: 0
         }))
-        .add(TweenMax.to('.libraries', 0.4, {
+        .add(TweenMax.to('.libraries', 0.2, {
             opacity: 0
         }))
-        .add(TweenMax.to('.technical', 0.5, {
+        .add(TweenMax.to('.technical', 0.2, {
             opacity: 0
         }))
     var toolkit_hide_trigger = new ScrollScene({
         triggerElement: '#scene2',
-        offset: 100,
+        offset: toolkit_fadeout_div_top,
     }).setTween(toolkit_hide).addTo(controller).addIndicators();
     //This creates the stars for the projects down below. Creating them here to hopefully take load
     //off at the beginning of the portfolio load

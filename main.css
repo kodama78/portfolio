@@ -150,7 +150,9 @@ OFFSETS
 #languages_star_remove {
     top: 120%;
 }
-
+#toolkit_fadeout {
+    top: 40%;
+}
 #scene1_star_pin {
     top: 60%;
 }
